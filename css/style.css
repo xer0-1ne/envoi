@@ -1,0 +1,20 @@
+body {
+    font-family: "Mukta", sans-serif;
+    background: #e6e6e6 !important;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.site-logo {
+  padding: 20px 0 20px 0;
+  border-bottom: 1px dashed #dedede;
+}
+
+.box-padding {
+  margin: 10px;
+  background-color: #ffffff;
+  padding: 15px;
+}

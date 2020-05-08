@@ -1,6 +1,6 @@
 # Envoi
 
-A PHP-based flat file blogging system with shareability, simplicity, and versatility in mind.
+Envoi is (will be) a PHP-based flat file blogging system with shareability, simplicity, and versatility in mind.
 
 ## Goal:
 To create a simple blog platform that will automatically share content on various social media services automatially.

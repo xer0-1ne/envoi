@@ -1,13 +1,14 @@
 <?php
 
 
-	$site_url      = "localhost";
-	$site_title    = "Envoi";
-	$site_slogan   = "One place to share it all";
+	$site_url               = "localhost";
+	$site_title             = "Envoi";
+	$site_slogan            = "One place to share it all";
 
-	$username      = "Will";
-    $user_title    = "Programmer";
-    $user_about    = "";
+	$username               = "Will Roberts";
+    $profile_picture        = "images/profile.png";
+    $user_title             = "Programmer";
+    $user_about             = "";
 
     
 

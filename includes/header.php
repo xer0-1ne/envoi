@@ -32,5 +32,9 @@
             <h3><small><?php echo $site_slogan; ?></small></h3>
         </div>
     </div>
+    
+    <!-- author block, left panel -->
+    <?php include "includes/author.php"; ?> 
 </div>
+   
     

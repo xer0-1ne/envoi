@@ -1,21 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .head {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    
+    padding-top: 30px;
+    margin: auto;
+    text-align: center;
+}
+
+.head h1 {
+    font-family: 'Arvo', serif;
+    font-size: 3.2em;
+    
 }
 
 body {
-    font-family: "Mukta", sans-serif;
-    background: #e6e6e6 !important;
+    font-family: 'Roboto', sans-serif;
+    background: #fff !important;
+    color: #555;
+    
 }
 
 html {
     position: relative;
     min-height: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.author-block {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: .125em dashed #ddd;
+    border-bottom: .125em dashed #ddd;
+    display: inline-block;
+    max-width: 500px;
+    text-align: center;
+
+}
+
+.profile-picture {
+    max-width: 150px;
+    min-width: 100px;
+    
 }
 
 .post {
     margin: 10px;
-    background-color: #ffffff;
     padding: 15px;
 }
 
@@ -26,7 +62,6 @@ html {
 
 .box-padding {
     margin: 10px;
-    background-color: #ffffff;
     padding: 15px;
 }
 

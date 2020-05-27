@@ -2,18 +2,15 @@
 
 <!-- Start Body -->
 
-<div class="container">
+<div class="container content">
     <div class="row">
         
-        <!-- author block, left panel -->
-        <?php include "includes/author.php"; ?> 
-        
         <!-- post section -->
-        <div class="col-md-8">
-        
+        <div class="container">
+
             <?php 
             
-                $post_list = directoryArrayMap("content");
+                $post_list = directoryArrayMap("content");            
                 $post_info = getPostInfo($post_list);
 
                 foreach ( $post_info as $post ) {

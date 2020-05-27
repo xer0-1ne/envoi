@@ -6,18 +6,18 @@
 	$site_slogan            = "One place to share it all";
 
     //user information
-	$username               = "Will Roberts";
+	$username               = "My Name";
     $profile_picture        = "images/profile.png";
     $user_title             = "Programmer";
     $user_about             = "";
 
     //put the links to your social media
     $social_media_links = array(
-                "facebook"    => "test",
-                "linkedin"    => "test",
-                "twitter"     => "test",
-                "instagram"   => "test",
-                "wordpress"   => "test"
+                "facebook"    => "",
+                "linkedin"    => "",
+                "twitter"     => "",
+                "instagram"   => "",
+                "wordpress"   => ""
         );
     
 	//The password is set using the admin panel.

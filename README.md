@@ -1,28 +1,26 @@
 # Envoi
 
-Envoi is (will be) a PHP-based flat file blogging system with shareability, simplicity, and versatility in mind.
+Envoi is **simple, self-hosted, PHP, flat-file** blogging platform that enables us to write and share with a variety of social medias.  The focus of Envoi is to eliminate the requirement for databases like SQL, maintain a strong security focus and simplify the blogging and sharing experience.  The goal of Envoi is locally host posts while also automatically sharing content on various social media services and aggrigate the information back onto the blog (comments, likes, shares, etc).
 
-## Goal:
-To create a simple blog platform that will automatically share content on various social media services automatially.
-To create an app that will act as a frontend to the blog making the ability to share information even easier.
+To make the blogging experience more user friendly, blogging categories will be broken into 6 separate options.  These options will help display content and format this content to comply with the posting requirements for other social meida platforms.  
 
-Blog posts will be categorized in 6 separate options:
+These categories will be:
 
-### Text:
-For use with standard blog posts and code blocks.
+#### Text:
+For use with standard blog posts and code blocks.  This will be mostly friendly with all social media platforms.
 
-### Photo:
-To share a photo with or without caption
+#### Photo:
+To share a photo with or without caption.  The goal would be to target formatting for social media platforms that focus on images.
 
-### Video:
-To share a video or link to video with or without caption
+#### Video:
+To share a video or link from other video websites like YouTube.  Unlike the URL category, this will embed the video directly into the blog.
 
-### File:
+#### File:
 To share a file or link to a file
 
-### URL Link:
+#### URL Link:
 To share a weblink
 
-### Quote:
+#### Quote:
 To share a quote where author/originator is required
 

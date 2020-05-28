@@ -1,6 +1,24 @@
-<?php 
-    include "config/config.php";
-    include "includes/functions.php";
+<?php #header.php
+
+    //define separator
+    define('SLASH', DIRECTORY_SEPARATOR);
+
+    //define root directory
+    define('ROOT', dirname(__dir__, 1) . SLASH);
+
+    //define config directory
+    define('CONFIG_DIR', ROOT . 'config' . SLASH);
+
+    //define includes directory
+    define('INCLUDES_DIR', ROOT . 'includes'. SLASH);
+
+    //declare required files
+    $config_file = CONFIG_DIR . 'config.php';
+    $functions_file = INCLUDES_DIR . 'functions.php';
+
+    include $config_file;
+    include $functions_file;
+
 ?>
 
 <!DOCTYPE html>
@@ -20,20 +38,11 @@
     <meta name="robots" content="index,follow">
 
     <title><?php echo $site_title ?></title>
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    
+    <!-- Links -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="<?php echo $site_url; ?>resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $site_url; ?>resources/css/style.css">
+    
 </head>
 
-<div class="container head">
-    <div class="row">
-
-        <div class="col-md-12">
-            <h1 class="page-header"><?php echo $site_title; ?></h1>
-            <h3><small><?php echo $site_slogan; ?></small></h3>
-        </div>
-    </div>
-
-    <!-- author block, left panel -->
-    <?php include "includes/author.php"; ?>
-</div>

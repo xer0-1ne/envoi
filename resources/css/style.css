@@ -27,10 +27,11 @@ html {
     text-align: center;
 }
 
-.head h1 {
+.head a {
     font-family: 'Arvo', serif;
     font-size: 3.2em;
-    
+    color: #555;
+    text-decoration: none !important;
 }
 
 .author-block {
@@ -74,8 +75,4 @@ html {
 .box-padding {
     margin: 10px;
     padding: 15px;
-}
-
-.nounderline {
-    text-decoration: none !important;
 }

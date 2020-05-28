@@ -1,7 +1,7 @@
 <?php
 
     //site information
-	$site_url               = "localhost";
+	$site_url               = "http://localhost/envoi/";
 	$site_title             = "Envoi";
 	$site_slogan            = "One place to share it all";
 

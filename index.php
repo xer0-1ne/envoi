@@ -17,14 +17,24 @@
 
             <?php 
             
-                $post_list = directoryArrayMap("content");            
+                //scan the content folder for all posts
+                $post_list = directoryArrayMap("content");    
+            
+                //create an array for each post
                 $post_info = getPostInfo($post_list);
 
+                //loop through each post in the array and display the info
                 foreach ( $post_info as $post ) {
+                    
+                    //get file location
                     $location = $post['location'];
                     echo "<div class='post'>";
+                    
+                    //get the post contents
                     echo getPost($location);
                     echo "</div>";
+                    
+
                 }
             ?>
             

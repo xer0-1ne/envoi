@@ -19,7 +19,7 @@ function endWith($line, $check) {
     
 }
 
-//directory mapping
+//directory mapping to scan and find posts in the content folder
 function directoryArrayMap($directory) {
   
    $result = array();
@@ -39,7 +39,6 @@ function directoryArrayMap($directory) {
          }
       }
    }
-  
    return $result;
 } 
 
@@ -53,6 +52,10 @@ function getPostInfo($arrayOfPosts) {
         foreach ($months as $month => $days) {
             foreach ($days as $day => $files) {
                 foreach ($files as $file) {
+                    
+                    $len = strlen($file);
+                    $hour = substr($file, -$len, 2);
+                    $min = substr($file, -$len + 2, 2);
 
                     $result[] = array(
                         'location' => "content/$year/$month/$day/$file",
@@ -60,8 +63,8 @@ function getPostInfo($arrayOfPosts) {
                         'year' => $year,
                         'month' => $month,
                         'day' => $day,
-                        'hour' => '',
-                        'minutes' => ''
+                        'hour' => $hour,
+                        'minutes' => $min
                     );
                 }
             }
@@ -76,6 +79,12 @@ function getPostInfo($arrayOfPosts) {
 function getPost($file) {
     
     $post = "";
+    
+    //make date from file location 
+    $build_date = str_replace(array('/','content','.md'), '', $file);
+    
+    //format the date into a readable type "Tuesday the 19th of May at 19:27"
+    $date_time = date('l \t\h\e jS \o\f F\, Y \a\t H\:i', strtotime($build_date));
 
     $open_file = fopen($file, "r") or die("Can't open File");
 
@@ -101,7 +110,7 @@ function getPost($file) {
                 $key_title => $pre_entry
             );
 
-            $header = postHeader($key_title, $pre_entry);
+            $header = postHeader($key_title, $pre_entry, $date_time);
             $post .= $header;
 
         } else {
@@ -115,10 +124,12 @@ function getPost($file) {
 }
 
 //builds the header for the post
-function postHeader($title, $entry) {
+function postHeader($title, $entry, $date_time) {
     
     if($title == 'title') {
-        return "<h2><a href='#' class='nounderline'>" . $entry . "</a></h2>";
+        return "<a href='#' class='nounderline h2'>" . $entry . "</a><br>" . 
+            "<span class='small'>" . "Posted on: " . "<span class='font-weight-bold'>" . 
+            $date_time . "</span></span><br><br>";
     }
     
 }

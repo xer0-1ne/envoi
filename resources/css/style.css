@@ -6,19 +6,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.head {
-    
-    padding-top: 30px;
-    margin: auto;
-    text-align: center;
-}
-
-.head h1 {
-    font-family: 'Arvo', serif;
-    font-size: 3.2em;
-    
-}
-
 body {
     font-family: 'Roboto', sans-serif;
     background: #fff !important;
@@ -33,11 +20,25 @@ html {
     margin: auto;
 }
 
+.head {
+    
+    padding-top: 30px;
+    margin: auto;
+    text-align: center;
+}
+
+.head h1 {
+    font-family: 'Arvo', serif;
+    font-size: 3.2em;
+    
+}
+
 .author-block {
     margin-top: 30px;
     padding-top: 10px;
     border-top: .125em dashed #ddd;
     border-bottom: .125em dashed #ddd;
+    margin-bottom: 30px;
     display: inline-block;
     max-width: 500px;
     text-align: center;
@@ -48,6 +49,16 @@ html {
     max-width: 150px;
     min-width: 100px;
     
+}
+
+.search {
+    max-width: 600px;
+    margin: auto;
+}
+
+.search input {
+    font-color: #ccc;
+    border-color: #ccc;
 }
 
 .post {

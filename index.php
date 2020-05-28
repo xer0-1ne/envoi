@@ -2,6 +2,13 @@
 
 <!-- Start Body -->
 
+<!-- Search bar -->
+<div class="row no-gutters align-items-center search">
+    <input type="search" class="form-control rounded-pill shadow-sm p-4 mb-4 bg-light" value="find something...">    
+</div>
+
+
+
 <div class="container content">
     <div class="row">
         

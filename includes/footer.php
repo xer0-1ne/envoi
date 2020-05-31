@@ -9,10 +9,10 @@
         </div>
     </footer>
 </div>
+
+
 <!-- All required scripts -->
-
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/bootstrap.bundle.min.js"></script> 
-
+    <script src="<?php echo $site_url; ?>resources/js/jquery.min.js"></script>
+    <script src="<?php echo $site_url; ?>resources/js/bootstrap.min.js"></script> 
 </body>
 </html>

@@ -1,3 +1,5 @@
+![Envoi Screenshot](https://github.com/xer0-1ne/envoi/blob/master/envoi.png)
+
 # Envoi
 
 Envoi is **simple, self-hosted, PHP, flat-file** blogging platform that enables us to write and share with a variety of social mrdia services.  The focus of Envoi is to eliminate the requirement for databases like SQL, maintain a strong security focus and simplify the blogging and sharing experience.  The goal of Envoi is locally host posts while also automatically sharing content on various social media services and aggrigate the information back onto the blog (comments, likes, shares, etc).

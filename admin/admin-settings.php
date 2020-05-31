@@ -18,6 +18,11 @@
                 <div class="container-fluid">
                     <h3 class="text-dark mb-1">Settings</h3>
                 </div>
+                <div class="container-fluid">
+                    This page will have all of the settings for Envoi.  Themes, fonts, Social Media links, etc.    
+                    <br><br>
+                    Will probably use parse_ini_file to sort through the settings.
+                </div>
             </div>
         </div>
 

@@ -18,6 +18,9 @@
                 <div class="container-fluid">
                     <h3 class="text-dark mb-1">Add Content</h3>
                 </div>
+                <div class="container-fluid">
+                    This page will have a dropdown select option to choose which type of post you would like to make.  From this, a pre-defined layout for the option will be displayed so that the user can populate the information they desire.
+                </div>
             </div>
         </div>
 

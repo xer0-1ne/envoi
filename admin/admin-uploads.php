@@ -18,6 +18,9 @@
                 <div class="container-fluid">
                     <h3 class="text-dark mb-1">Uploads</h3>
                 </div>
+                <div class="container-fluid">
+                    List of all uploaded files.  Option to add/remove files.
+                </div>
             </div>
         </div>
 

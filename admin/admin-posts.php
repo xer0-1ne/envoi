@@ -18,6 +18,9 @@
                 <div class="container-fluid">
                     <h3 class="text-dark mb-1">Posts</h3>
                 </div>
+                <div class="container-fluid">
+                    List of all posts that have been created.  You will be able to edit/delete from this page.  You will also be able to see which social media service each post has been sent to.
+                </div>
             </div>
         </div>
 

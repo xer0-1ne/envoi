@@ -18,6 +18,9 @@
                 <div class="container-fluid">
                     <h3 class="text-dark mb-1">Profile</h3>
                 </div>
+                <div class="container-fluid">
+                    User profile information.  Here you will be able to change Title, Name, About Me info, Picture, etc. 
+                </div>
             </div>
         </div>
 

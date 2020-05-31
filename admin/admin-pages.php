@@ -18,6 +18,11 @@
                 <div class="container-fluid">
                     <h3 class="text-dark mb-1">Pages</h3>
                 </div>
+                <div class="container-fluid">
+                    List of all pages that have been created.  You will be able to edit/delete from this page.
+                </div>
+                
+                
             </div>
         </div>
 

@@ -15,17 +15,22 @@
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="admin-add-content.php">
+                    <i class="fas fa-plus-square"></i><span>Add Content</span>
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" href="admin-posts.php">
                     <i class="fas fa-file"></i><span>Posts</span>
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="admin-pages.php">
                     <i class="fas fa-file-alt"></i><span>Pages</span>
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="admin-uploads.php">
                     <i class="fas fa-file-upload"></i><span>Uploads</span>
                 </a>
             </li>

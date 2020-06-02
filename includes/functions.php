@@ -1,5 +1,7 @@
 <?php #fucntions.php
 
+include "classes.php";
+
 //return if a line begins with "check"
 function beginWith($line, $check) {
     
@@ -81,20 +83,13 @@ function getPostMeta($arrayOfPosts) {
 //build's post from file and returns in HTML
 function getPost($file) {
     
-    $post = array(
-        'title' => "",
-        'type' => "",
-        'status' => "",
-        'content' => "",
-        'datetime' => ""
-    );
+    $post_content = "";
     
-    //make date from file location 
-    $build_date = str_replace(ROOT, "", $file);
-    $build_date = str_replace(array('/','content','.md'), '', $build_date);
+    //create a new post
+    $post = new TextPost();
     
-    //format the date into a readable type "Tuesday the 19th of May at 19:27"
-    $post['datetime'] = date('l \t\h\e jS \o\f F\, Y \a\t H\:i', strtotime($build_date));
+    //set the date and time based on file path and name
+    $post->set_datetime($file);
     
     //open post file from porvided location or die with error message
     $open_file = fopen($file, "r") or die("Can't open File");
@@ -103,38 +98,33 @@ function getPost($file) {
     while ( !feof($open_file)) {
         $line = fgets($open_file);
 
+        //check for post title, type and status
         if ( beginWith($line, "title")) {
             
-            //remove "title:"
-            $header_value = str_replace("title: ", "", $line);
+            //set post title
+            $post->set_title($line);
             
-            //assign title value into array
-            $post['title'] = $header_value;
-
         } else if ( beginWith($line, "type")) {
             
-            //remove "title:"
-            $header_value = str_replace("type: ", "", $line);
-            
-            //assign title value into array
-            $post['type'] = $header_value;
-
-                
+            //set post status
+            $post->set_type($line);
+       
         } else if ( beginWith($line, "status")) {
             
-            //remove "title:"
-            $header_value = str_replace("status: ", "", $line);
-            
-            //assign title value into array
-            $post['status'] = $header_value;
+            //set post type
+            $post->set_type($line);
 
         } else {
+            //concatenate post content
+            $post_content .= $line . "<br>";        
             
-            $post['content'] .= $line . "<br>";
-            
-        } //end of header value assignment 
+        } //end content assignment
         
     } //end while
+    
+    //set post congtent
+    $post->set_content($post_content);
+    
     fclose($open_file);
     
     //return post array

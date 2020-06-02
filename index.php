@@ -53,11 +53,11 @@
                     $post_file_data = getPost($post_file_location);
                     
                     //assign data to variables
-                    $post_title = $post_file_data['title'];
-                    $post_type = $post_file_data['type'];
-                    $post_status = $post_file_data['status'];                    
-                    $post_content = $post_file_data['content'];
-                    $post_datetime = $post_file_data['datetime'];
+                    $post_title     = $post_file_data->get_title();
+                    $post_type      = $post_file_data->get_type();
+                    $post_status    = $post_file_data->get_status();                  
+                    $post_content   = $post_file_data->get_content();
+                    $post_datetime  = $post_file_data->get_datetime();
                     
                     //display post
                     echo "<div class='post'>" . 

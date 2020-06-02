@@ -1,4 +1,4 @@
-<?php
+<?php #fucntions.php
 
 //return if a line begins with "check"
 function beginWith($line, $check) {
@@ -20,7 +20,7 @@ function endWith($line, $check) {
 }
 
 //directory mapping to scan and find posts in the content folder
-function directoryArrayMap($directory) {
+function scanContentFolder($directory) {
   
    $result = array();
 
@@ -31,7 +31,7 @@ function directoryArrayMap($directory) {
       {
          if (is_dir($directory . DIRECTORY_SEPARATOR . $value))
          {
-            $result[$value] = directoryArrayMap($directory . DIRECTORY_SEPARATOR . $value);
+            $result[$value] = scanContentFolder($directory . DIRECTORY_SEPARATOR . $value);
          }
          else
          {
@@ -42,13 +42,12 @@ function directoryArrayMap($directory) {
    return $result;
 } 
 
-//getting post information
-function getPostInfo($arrayOfPosts) {
-    $post_search = $arrayOfPosts;
+//getting post information (file location, date posted, etc)
+function getPostMeta($arrayOfPosts) {
+    
+    $year = array_keys($arrayOfPosts);
 
-    $year = array_keys($post_search);
-
-    foreach ($post_search as $year => $months) {
+    foreach ($arrayOfPosts as $year => $months) {
         foreach ($months as $month => $days) {
             foreach ($days as $day => $files) {
                 foreach ($files as $file) {
@@ -58,7 +57,10 @@ function getPostInfo($arrayOfPosts) {
                     $min = substr($file, -$len + 2, 2);
 
                     $result[] = array(
-                        'location' => "content/$year/$month/$day/$file",
+                        'location' => CONTENT_DIR . $year
+                         . DIRECTORY_SEPARATOR . $month
+                         . DIRECTORY_SEPARATOR . $day
+                         . DIRECTORY_SEPARATOR . $file,
                         'file' => $file,
                         'year' => $year,
                         'month' => $month,
@@ -71,6 +73,7 @@ function getPostInfo($arrayOfPosts) {
         }
     }
     
+    //return in order of latest first, and oldest last
     $result = array_reverse($result);
     return $result;
 }
@@ -78,60 +81,64 @@ function getPostInfo($arrayOfPosts) {
 //build's post from file and returns in HTML
 function getPost($file) {
     
-    $post = "";
+    $post = array(
+        'title' => "",
+        'type' => "",
+        'status' => "",
+        'content' => "",
+        'datetime' => ""
+    );
     
     //make date from file location 
-    $build_date = str_replace(array('/','content','.md'), '', $file);
+    $build_date = str_replace(ROOT, "", $file);
+    $build_date = str_replace(array('/','content','.md'), '', $build_date);
     
     //format the date into a readable type "Tuesday the 19th of May at 19:27"
-    $date_time = date('l \t\h\e jS \o\f F\, Y \a\t H\:i', strtotime($build_date));
-
+    $post['datetime'] = date('l \t\h\e jS \o\f F\, Y \a\t H\:i', strtotime($build_date));
+    
+    //open post file from porvided location or die with error message
     $open_file = fopen($file, "r") or die("Can't open File");
 
-    $data = array();
-    $marker = "|||";
-
+    //process post informartion and store into array
     while ( !feof($open_file)) {
         $line = fgets($open_file);
 
-        if ( beginWith($line, $marker) ) {
-
-            //remove the special characters
-            $line = str_replace(str_split('|'), '', $line);
-
-            //explode the data for array keys
-            list($key_title, $pre_entry) = explode(":", $line);
+        if ( beginWith($line, "title")) {
             
-            //remove spaces from 
-            $key_title = str_replace(str_split(' '), '', $key_title);
+            //remove "title:"
+            $header_value = str_replace("title: ", "", $line);
+            
+            //assign title value into array
+            $post['title'] = $header_value;
 
-            //assign data to array
-            $data = array(
-                $key_title => $pre_entry
-            );
+        } else if ( beginWith($line, "type")) {
+            
+            //remove "title:"
+            $header_value = str_replace("type: ", "", $line);
+            
+            //assign title value into array
+            $post['type'] = $header_value;
 
-            $header = postHeader($key_title, $pre_entry, $date_time);
-            $post .= $header;
+                
+        } else if ( beginWith($line, "status")) {
+            
+            //remove "title:"
+            $header_value = str_replace("status: ", "", $line);
+            
+            //assign title value into array
+            $post['status'] = $header_value;
 
         } else {
-            $post .= $line . "<br>";
-        }
-
-    }
+            
+            $post['content'] .= $line . "<br>";
+            
+        } //end of header value assignment 
+        
+    } //end while
     fclose($open_file);
     
+    //return post array
     return $post;
-}
-
-//builds the header for the post
-function postHeader($title, $entry, $date_time) {
-    
-    if($title == 'title') {
-        return "<a href='#' class='nounderline h2'>" . $entry . "</a><br>" . 
-            "<span class='small'>" . "Posted on: " . "<span class='font-weight-bold'>" . 
-            $date_time . "</span></span><br><br>";
-    }
-    
 }
 
 ?>

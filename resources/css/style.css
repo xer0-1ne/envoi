@@ -10,7 +10,6 @@ body {
     font-family: 'Roboto', sans-serif;
     background: #fff !important;
     color: #555;
-    
 }
 
 html {
@@ -43,13 +42,11 @@ html {
     display: inline-block;
     max-width: 500px;
     text-align: center;
-
 }
 
 .profile-picture {
     max-width: 150px;
     min-width: 100px;
-    
 }
 
 .search {
@@ -79,4 +76,8 @@ html {
 
 .rounded-pill {
     border-radius:50rem!important
+}
+
+.nounderline {
+    text-decoration: none !important;
 }

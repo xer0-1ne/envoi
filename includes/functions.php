@@ -131,4 +131,39 @@ function getPost($file) {
     return $post;
 }
 
+//display the posts
+function displayPosts() {
+    
+    //scan the content folder for all posts
+    $post_list = scanContentFolder(CONTENT_DIR);
+
+    //get basic post meta info (file location, date posted, etc)
+    $post_meta_info = getPostMeta($post_list);
+
+    //loop through each post in the array and display the info
+    foreach ( $post_meta_info as $post_info ) {
+
+    //get file path location for the markdown post file
+    $post_file_location = $post_info['location'];
+
+    //get an array of data for the post information
+    $post_file_data = getPost($post_file_location);
+
+    //assign data to variables
+    $post_title     = $post_file_data->get_title();
+    $post_type      = $post_file_data->get_type();
+    $post_status    = $post_file_data->get_status();
+    $post_content   = $post_file_data->get_content();
+    $post_datetime  = $post_file_data->get_datetime();
+
+    //display post
+    echo "<div class='post'>" .
+        "<a href='#' class='nounderline h2'>" .
+            $post_title . "</a><br>" .
+        "<span class='small font-weight-bold'>Posted on: " .
+            $post_datetime . "</span><br>" .
+        $post_content . "</div>";
+    }
+}
+
 ?>

@@ -1,6 +1,6 @@
 <?php #fucntions.php
 
-include "classes.php";
+include "post_type_classes.php";
 
 //return if a line begins with "check"
 function beginWith($line, $check) {

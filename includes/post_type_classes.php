@@ -1,14 +1,12 @@
-<?php #classes.php
-
-include_once "init.php";
+<?php #post_type_classes.php
 
 class TextPost {
     
-        public $title;
-        public $type;
-        public $status;
-        public $content;
-        public $datetime;
+        private $title;
+        private $type;
+        private $status;
+        private $content;
+        private $datetime;
     
         //set title from provided line
         function set_title($line) {
@@ -83,9 +81,6 @@ class TextPost {
         function get_datetime() {
             return $this->datetime;
         }
-        
-
-
 }
 
 class PicturePost

@@ -1,3 +1,11 @@
+<?php #admin-header.php
+    
+    ob_start();
+    include "../init.php";
+
+?>
+
+<!-- head information -->   
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">

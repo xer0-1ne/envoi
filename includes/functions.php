@@ -1,6 +1,6 @@
 <?php #fucntions.php
 
-include "post_type_classes.php";
+include "classes.php";
 
 //return if a line begins with "check"
 function beginWith($line, $check) {
@@ -106,13 +106,13 @@ function getPost($file) {
             
         } else if ( beginWith($line, "type")) {
             
-            //set post status
+            //set post type
             $post->set_type($line);
        
         } else if ( beginWith($line, "status")) {
             
-            //set post type
-            $post->set_type($line);
+            //set post status
+            $post->set_status($line);
 
         } else {
             //concatenate post content
@@ -155,15 +155,23 @@ function displayPosts() {
     $post_status    = $post_file_data->get_status();
     $post_content   = $post_file_data->get_content();
     $post_datetime  = $post_file_data->get_datetime();
+        
+    //check post status to "draft"... using trim to strip the last (white) character from the object    
+    if (trim($post_status) != "draft" ) {
 
-    //display post
-    echo "<div class='post'>" .
-        "<a href='#' class='nounderline h2'>" .
-            $post_title . "</a><br>" .
-        "<span class='small font-weight-bold'>Posted on: " .
-            $post_datetime . "</span><br>" .
-        $post_content . "</div>";
+        echo "<div class='post'>" .
+            "<a href='#' class='nounderline h2'>" .
+                $post_title . "</a><br>" .
+            "<span class='small font-weight-bold'>Posted on: " .
+                $post_datetime . "</span><br>" .
+            $post_content . "</div>";
+
+        }
     }
+}
+
+function createPost() {
+    
 }
 
 ?>

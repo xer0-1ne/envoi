@@ -19,9 +19,7 @@
     <?php include INCLUDES_DIR . "author.php"; ?>
 </div>
 
-<!-- end title section -->
-
-<!-- Start Body -->
+<!-- end title section and Start Body -->
 
 <!-- Search bar -->
 <div class="row no-gutters align-items-center search">

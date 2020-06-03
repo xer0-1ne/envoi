@@ -1,4 +1,4 @@
-<?php #post_type_classes.php
+<?php #classes.php
 
 class TextPost {
     
@@ -41,11 +41,12 @@ class TextPost {
         //set status
         function set_status($line) {
             
-            //remove "status:"
+            //remove "status:" marker from the line
             $header_value = str_replace("status: ", "", $line);
-            
+
             //assign title value into array         
             $this->status = $header_value;
+            
         }
     
         //get status

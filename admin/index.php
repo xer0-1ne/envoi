@@ -1,6 +1,5 @@
 <?php #index.php
 
-    include "../init.php";
     include "admin-header.php";
 
 ?>

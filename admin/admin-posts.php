@@ -1,6 +1,5 @@
-<?php #index.php
+<?php #admin-posts.php
 
-    include "../init.php";
     include "admin-header.php";
 
 ?>
@@ -19,7 +18,27 @@
                     <h3 class="text-dark mb-1">Posts</h3>
                 </div>
                 <div class="container-fluid">
-                    List of all posts that have been created.  You will be able to edit/delete from this page.  You will also be able to see which social media service each post has been sent to.
+                
+                    <table class="table table-sm table-hover table-striped">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>test info</td>
+                                <td>test info</td>
+                                <td>test info</td>
+                                <td>test info</td>
+                                <td>test info</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

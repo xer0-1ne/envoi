@@ -1,8 +1,14 @@
 <?php #admin-posts.php
 
     include "admin-header.php";
-    //post_functions are all of the pre-defined pages for post related CRUD
 
+    //get page without the parameters
+    $page = explode("?", $_SERVER['PHP_SELF']);
+
+    //pass delete parameters to the deletePost function
+    if (isset($_GET['delete'])) { 
+        deletePost($_GET['delete'], $page[0]);
+    }
 ?>
 
 <div class="d-flex" id="wrapper">
@@ -23,6 +29,7 @@
                             <th>Type</th>
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Location</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -41,6 +48,8 @@
                             
                             //get file path location for the markdown post file
                             $post_file_location = $post_info['location'];
+                            
+                            $rel_path = str_replace(CONTENT_DIR, "", $post_file_location);
 
                             //get an array of data for the post information
                             $post_file_data = getPostHeader($post_file_location);
@@ -53,14 +62,16 @@
                             $post_time      = $post_file_data->get_time();
                             
                             ?>                             
-
+                            
+                            <!-- display the post meta data in the table fields -->
                             <td><?php echo $post_status; ?></td>
                             <td><?php echo $post_title; ?></td>
                             <td><?php echo $post_type; ?></td>
                             <td><?php echo $post_date; ?></td>
                             <td><?php echo $post_time; ?></td>
+                            <td><?php echo $rel_path; ?></td>
                             <td><a href="<?php echo "" ?>"><i class="fas fa-edit"></i></a></td>
-                            <td><a href=""><i class="fas fa-trash red-text"></i></a></td>
+                            <td><a href="?delete=<?php echo $rel_path; ?>"><i class="fas fa-trash red-text"></i></a></td>
                             
                         </tr>
                         <?php } ?>

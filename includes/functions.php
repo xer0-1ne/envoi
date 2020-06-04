@@ -269,4 +269,14 @@ function createPost($post_data) {
     
 }
 
+function deletePost($file, $page) {
+    
+    //TODO: add a modal popup to confirm that the user wants to delete the file
+    
+    $file = CONTENT_DIR . $file;
+    //delete the file
+    unlink($file);
+    header("Location: $page");
+}
+
 ?>

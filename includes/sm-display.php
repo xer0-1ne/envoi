@@ -1,4 +1,4 @@
-<?php #sm-picker.php
+<?php #sm-display.php
 
     echo "coming soon";
 

@@ -17,3 +17,7 @@ body {
 .post-textarea {
     white-space: pre-wrap;
 }
+
+.red-text {
+    color: indianred;
+}

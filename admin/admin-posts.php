@@ -59,8 +59,8 @@
                             <td><?php echo $post_type; ?></td>
                             <td><?php echo $post_date; ?></td>
                             <td><?php echo $post_time; ?></td>
-                            <td><a href="<?php echo $post_file_location; ?>"><i class="fas fa-edit"></i></a></td>
-                            <td><a href="<?php echo $post_file_location; ?>"><i class="fas fa-trash"></i></a></td>
+                            <td><a href="<?php echo "" ?>"><i class="fas fa-edit"></i></a></td>
+                            <td><a href=""><i class="fas fa-trash red-text"></i></a></td>
                             
                         </tr>
                         <?php } ?>

@@ -25,5 +25,6 @@
 	//change the salt to a unique phrase and do not share.
 	$salt          = "";
 
+    $timezone       = "America/New_York";
 
 ?>

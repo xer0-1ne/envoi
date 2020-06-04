@@ -4,25 +4,22 @@
 
 ?>
 
-<body id="page-top">
-    <div id="wrapper">
 
-        <?php include "admin-nav.php"; ?>
 
-        <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
+<div class="d-flex" id="wrapper">
+    <?php include "admin-nav.php"; ?>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <div class="container-fluid shadow admin-navbar-dark">
+                <h4 class="text-light p-3 text-center">Profile</h4>
+            </div>
 
-                <?php include "admin-nav-top.php"; ?>
-
-                <div class="container-fluid">
-                    <h3 class="text-dark mb-1">Profile</h3>
-                </div>
-                <div class="container-fluid">
-                    User profile information.  Here you will be able to change Title, Name, About Me info, Picture, etc. 
-                </div>
+            <div class="container-fluid">
+                User profile information. Here you will be able to change Title, Name, About Me info, Picture, etc.
             </div>
         </div>
+    </div>
 
-        <a class="border rounded-pill d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <a class="border rounded-pill d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
 
 <?php include "admin-footer.php"; ?>

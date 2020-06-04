@@ -81,6 +81,49 @@ function getPostMeta($arrayOfPosts) {
 }
 
 //build's post from file and returns in HTML
+function getPostHeader($file) {
+    
+    $post_content = "";
+    
+    //create a new post
+    $post = new TextPost();
+    
+    //set the date and time based on file path and name
+    $post->set_date($file);
+    $post->set_time($file);
+    
+    //open post file from porvided location or die with error message
+    $open_file = fopen($file, "r") or die("Can't open File");
+
+    //process post informartion and store into array
+    while ( !feof($open_file)) {
+        $line = fgets($open_file);
+
+        //check for post title, type and status
+        if ( beginWith($line, "title")) {
+            
+            //set post title
+            $post->set_title($line);
+            
+        } else if ( beginWith($line, "type")) {
+            
+            //set post type
+            $post->set_type($line);
+       
+        } else if ( beginWith($line, "status")) {
+            
+            //set post status
+            $post->set_status($line);
+
+        }
+    } //end while
+    fclose($open_file);
+    
+    //return post array
+    return $post;
+}
+
+//build's post from file and returns in HTML
 function getPost($file) {
     
     $post_content = "";
@@ -89,7 +132,8 @@ function getPost($file) {
     $post = new TextPost();
     
     //set the date and time based on file path and name
-    $post->set_datetime($file);
+    $post->set_date($file);
+    $post->set_time($file);
     
     //open post file from porvided location or die with error message
     $open_file = fopen($file, "r") or die("Can't open File");
@@ -154,23 +198,74 @@ function displayPosts() {
     $post_type      = $post_file_data->get_type();
     $post_status    = $post_file_data->get_status();
     $post_content   = $post_file_data->get_content();
-    $post_datetime  = $post_file_data->get_datetime();
-        
+    $post_date      = $post_file_data->get_date();    
+    $post_time      = $post_file_data->get_time();
+
     //check post status to "draft"... using trim to strip the last (white) character from the object    
-    if (trim($post_status) != "draft" ) {
+    //if (trim($post_status) != "draft" ) {
+        
+    if (trim($post_status) != "Draft" ) {
 
         echo "<div class='post'>" .
             "<a href='#' class='nounderline h2'>" .
                 $post_title . "</a><br>" .
             "<span class='small font-weight-bold'>Posted on: " .
-                $post_datetime . "</span><br>" .
+                $post_date . " at " . $post_time . "</span><br>" .
             $post_content . "</div>";
 
         }
     }
 }
 
-function createPost() {
+function createPost($post_data) {
+    
+        //post in the future or past!
+        
+        //explode the date into readable variables
+        $post_date = $post_data["post_date"];
+        list($post_year, $post_month, $post_day) = explode("-", $post_date);
+        
+        //create folder structure from date
+        $folder = CONTENT_DIR . 
+            $post_year . SLASH . 
+            $post_month . SLASH . 
+            $post_day . SLASH;
+        
+        //get time
+        $post_time = str_replace(":", "", $post_data["post_time"]);
+        
+        //create filename
+        $file = strval($post_time) . ".md";
+        
+        //create the folder
+        if ( !file_exists($folder)) {
+            mkdir($folder, 0755, true);
+        }
+        
+        //create post location
+        $post_location = $folder . SLASH . $file;
+        
+        //create file if it doesn't exist
+        if ( !file_exists($post_location) ) {
+            $new_post_file = fopen($post_location, 'w');
+            fwrite($new_post_file, 'd');
+            fclose($new_post_file);
+        }
+        
+        //create post file to open/edit
+        $post_file = fopen($post_location, "w") or die("Unable to create/edit post.");
+        
+        //write data to psot file
+        fwrite($post_file, "title: " . $post_data["post_title"] . PHP_EOL );
+        fwrite($post_file, "type: " . $post_data["post_type"] . PHP_EOL );
+        fwrite($post_file, "status: " . $post_data["post_status"] . PHP_EOL );
+        fwrite($post_file, $post_data["post_content"] );
+        
+        //close file
+        fclose($post_file);
+    
+    
+    
     
 }
 

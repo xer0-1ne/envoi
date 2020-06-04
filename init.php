@@ -14,4 +14,7 @@
     include $config_file;
     include $functions_file;
 
+    date_default_timezone_set($timezone);
+
+
 ?>

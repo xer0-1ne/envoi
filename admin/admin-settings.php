@@ -4,26 +4,15 @@
 
 ?>
 
-<body id="page-top">
-    <div id="wrapper">
-
-        <?php include "admin-nav.php"; ?>
-
-        <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
-
-                <?php include "admin-nav-top.php"; ?>
-
-                <div class="container-fluid">
-                    <h3 class="text-dark mb-1">Settings</h3>
-                </div>
-                <div class="container-fluid">
-                    This page will have all of the settings for Envoi.  Themes, fonts, Social Media links, etc.    
-                    <br><br>
-                    Will probably use parse_ini_file to sort through the settings.
-                </div>
+<div class="d-flex" id="wrapper">
+    <?php include "admin-nav.php"; ?>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <div class="container-fluid shadow admin-navbar-dark">
+                <h4 class="text-light p-3 text-center">Settings</h4>
             </div>
         </div>
+    </div>
 
         <a class="border rounded-pill d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
 

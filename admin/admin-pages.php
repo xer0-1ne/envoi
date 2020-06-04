@@ -4,18 +4,12 @@
 
 ?>
 
-<body id="page-top">
-<div id="wrapper">
-
+<div class="d-flex" id="wrapper">
     <?php include "admin-nav.php"; ?>
-
     <div class="d-flex flex-column" id="content-wrapper">
         <div id="content">
-
-            <?php include "admin-nav-top.php"; ?>
-
-            <div class="container-fluid">
-                <h3 class="text-dark mb-1">Pages</h3>
+            <div class="container-fluid shadow admin-navbar-dark">
+                <h4 class="text-light p-3 text-center">Pages</h4>
             </div>
             <div class="container-fluid">
                 List of all pages that have been created.  You will be able to edit/delete from this page.

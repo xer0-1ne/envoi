@@ -6,7 +6,8 @@ class TextPost {
         private $type;
         private $status;
         private $content;
-        private $datetime;
+        private $post_date;
+        private $post_time;
     
         //set title from provided line
         function set_title($line) {
@@ -35,7 +36,7 @@ class TextPost {
     
         //get type
         function get_type() {
-            return $this->type;
+            return ucwords($this->type);
         }
         
         //set status
@@ -51,7 +52,7 @@ class TextPost {
     
         //get status
         function get_status() {
-            return $this->status;
+            return ucwords($this->status);
         }
         
         //set content
@@ -66,21 +67,38 @@ class TextPost {
             return $this->content;
         }
         
-        //set date and time
-        function set_datetime($file_location) {
+        //set date
+        function set_date($file_location) {
             
             //make date from file location 
             $build_date = str_replace(ROOT, "", $file_location);
             $build_date = str_replace(array('/','content','.md'), '', $build_date);
 
             //format the date into a readable type "Tuesday the 19th of May at 19:27"
-            $this->datetime = date('l \t\h\e jS \o\f F\, Y \a\t H\:i', strtotime($build_date));
+            $this->post_date = date('l\, F jS\ Y', strtotime($build_date));
+
+        }
+        
+        //get date and time
+        function get_date() {
+            return $this->post_date;
+        }
+    
+        //set time
+        function set_time($file_location) {
+            
+            //make date from file location 
+            $build_date = str_replace(ROOT, "", $file_location);
+            $build_date = str_replace(array('/','content','.md'), '', $build_date);
+
+            //format the date into a readable type "Tuesday the 19th of May at 19:27"
+            $this->post_time = date('H\:i', strtotime($build_date));
 
         }
     
         //get date and time
-        function get_datetime() {
-            return $this->datetime;
+        function get_time() {
+            return $this->post_time;
         }
 }
 

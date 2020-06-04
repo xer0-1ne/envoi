@@ -1,4 +1,19 @@
-.admin-navbar-dark {
-    background-color: #333;
+:root {
+    --trans-mar-p1s-eo: margin .1s ease-out;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+.admin-navbar-dark {
+    background-color: #47484e;
+}
+
+.topbar-custom {
+    z-index: 10px;
+}
+
+.post-textarea {
+    white-space: pre-wrap;
+}

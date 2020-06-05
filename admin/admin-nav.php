@@ -12,7 +12,7 @@
             <ul class="nav navbar-nav" id="accordionSidebar">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" href="<?php echo $site_url; ?>">
-                        <i class="pr-1 fas fa-home"></i><span>Home</span>
+                        <i class="pr-1 fas fa-home"></i><span>View Website</span>
                     </a>
                 </li>
                 <hr>

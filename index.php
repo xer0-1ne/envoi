@@ -5,6 +5,7 @@
 ?>
 
 <!-- Start title section -->
+   <div class="text-center h6"><span class="small"><a href="<?php echo $site_url . 'admin' ?>">Admin</a></span></div>
 
 <div class="container head">
     <div class="row">

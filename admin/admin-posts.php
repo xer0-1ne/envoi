@@ -2,13 +2,6 @@
 
     include "admin-header.php";
 
-    //get page without the parameters
-    $page = explode("?", $_SERVER['PHP_SELF']);
-
-    //pass delete parameters to the deletePost function
-    if (isset($_GET['delete'])) { 
-        deletePost($_GET['delete'], $page[0]);
-    }
 ?>
 
 <div class="d-flex" id="wrapper">
@@ -70,11 +63,28 @@
                             <td><?php echo $post_date; ?></td>
                             <td><?php echo $post_time; ?></td>
                             <td><?php echo $rel_path; ?></td>
-                            <td><a href="<?php echo "" ?>"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="<?php echo "admin-edit-content.php?source=edit&file=" . $rel_path ?>"><i class="fas fa-edit"></i></a></td>
                             <td><a href="?delete=<?php echo $rel_path; ?>"><i class="fas fa-trash red-text"></i></a></td>
-                            
+                                                        
                         </tr>
-                        <?php } ?>
+                        <?php 
+                        
+                        } //close for each loop
+                            
+                        if (isset($_GET['delete'])) {
+                            
+                            //reassemble the direct-path location
+                            $file = CONTENT_DIR . $_GET['delete'];
+                            
+                            //get page without the parameters
+                            $page = explode("?", $_SERVER['PHP_SELF']);
+                            
+                            //delete the file
+                            unlink($file);
+                            header("Location: $page[0]");
+                        } //end if(isset)
+
+                        ?>
                     </tbody>
                 </table>
             </div>

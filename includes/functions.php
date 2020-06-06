@@ -136,7 +136,7 @@ function getPost($file) {
     $post->set_time($file);
     
     //open post file from porvided location or die with error message
-    $open_file = fopen($file, "r") or die("Can't open File");
+    $open_file = fopen($file, "r") or die("Can't open File " . $file);
 
     //process post informartion and store into array
     while ( !feof($open_file)) {
@@ -217,66 +217,52 @@ function displayPosts() {
     }
 }
 
+//create post and store in folder
 function createPost($post_data) {
     
-        //post in the future or past!
-        
-        //explode the date into readable variables
-        $post_date = $post_data["post_date"];
-        list($post_year, $post_month, $post_day) = explode("-", $post_date);
-        
-        //create folder structure from date
-        $folder = CONTENT_DIR . 
-            $post_year . SLASH . 
-            $post_month . SLASH . 
-            $post_day . SLASH;
-        
-        //get time
-        $post_time = str_replace(":", "", $post_data["post_time"]);
-        
-        //create filename
-        $file = strval($post_time) . ".md";
-        
-        //create the folder
-        if ( !file_exists($folder)) {
-            mkdir($folder, 0755, true);
-        }
-        
-        //create post location
-        $post_location = $folder . SLASH . $file;
-        
-        //create file if it doesn't exist
-        if ( !file_exists($post_location) ) {
-            $new_post_file = fopen($post_location, 'w');
-            fwrite($new_post_file, 'd');
-            fclose($new_post_file);
-        }
-        
-        //create post file to open/edit
-        $post_file = fopen($post_location, "w") or die("Unable to create/edit post.");
-        
-        //write data to psot file
-        fwrite($post_file, "title: " . $post_data["post_title"] . PHP_EOL );
-        fwrite($post_file, "type: " . $post_data["post_type"] . PHP_EOL );
-        fwrite($post_file, "status: " . $post_data["post_status"] . PHP_EOL );
-        fwrite($post_file, $post_data["post_content"] );
-        
-        //close file
-        fclose($post_file);
-    
-    
-    
-    
-}
+    //post in the future or past!
 
-function deletePost($file, $page) {
-    
-    //TODO: add a modal popup to confirm that the user wants to delete the file
-    
-    $file = CONTENT_DIR . $file;
-    //delete the file
-    unlink($file);
-    header("Location: $page");
-}
+    //explode the date into readable variables
+    $post_date = $post_data["post_date"];
+    list($post_year, $post_month, $post_day) = explode("-", $post_date);
 
+    //create folder structure from date
+    $folder = CONTENT_DIR . 
+        $post_year . SLASH . 
+        $post_month . SLASH . 
+        $post_day . SLASH;
+
+    //get time
+    $post_time = str_replace(":", "", $post_data["post_time"]);
+
+    //create filename
+    $file = strval($post_time) . ".md";
+
+    //create the folder
+    if ( !file_exists($folder)) {
+        mkdir($folder, 0755, true);
+    }
+
+    //create post location
+    $post_location = $folder . SLASH . $file;
+
+    //create file if it doesn't exist
+    if ( !file_exists($post_location) ) {
+        $new_post_file = fopen($post_location, 'w');
+        fwrite($new_post_file, 'd');
+        fclose($new_post_file);
+    }
+
+    //create post file to open/edit
+    $post_file = fopen($post_location, "w") or die("Unable to create/edit post.");
+
+    //write data to psot file
+    fwrite($post_file, "title: " . $post_data["post_title"] . PHP_EOL );
+    fwrite($post_file, "type: " . $post_data["post_type"] . PHP_EOL );
+    fwrite($post_file, "status: " . $post_data["post_status"] . PHP_EOL );
+    fwrite($post_file, $post_data["post_content"] );
+
+    //close file
+    fclose($post_file);
+}
 ?>

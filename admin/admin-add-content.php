@@ -16,6 +16,8 @@
         
         //create post
         createPost($post_data);
+        header("Location: " . $site_url . "admin" . SLASH . "admin-posts.php");
+
 
     }
 ?>

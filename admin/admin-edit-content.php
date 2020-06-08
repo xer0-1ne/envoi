@@ -18,6 +18,26 @@
         $post_date = date('Y-m-d', strtotime($post_data->get_date()));
         $post_time = $post_data->get_time();
     }
+
+
+    if(isset($_POST['submit'])) {
+
+        //create array to store post data
+        $post_data = array(
+            "post_type" => $_POST['post_type'],
+            "post_title" => $_POST['title'],
+            "post_content" => $_POST['content'],
+            "post_status" => $_POST['status'],
+            "post_date" => $_POST['date'],
+            "post_time" => $_POST['time']
+        );
+        
+        //create post
+        createPost($post_data);
+        header("Location: " . $site_url . "admin" . SLASH . "admin-posts.php");
+
+    }
+
 ?>
 
 <div class="d-flex" id="wrapper">

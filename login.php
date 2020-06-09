@@ -42,17 +42,17 @@
             <p class="h3 text-center">Envoi Login</p>
         </div>
         <div class="form-group mb-5">
-            <p class="text-center"><?php echo "<span style='font-weight:normal;'>Welcome back: </span>" . $username; ?></p>
+            <p class="text-center h5"><?php echo "Welcome back " . $username; ?></p>
         </div>
         <!-- password section -->
         <div class="form-group">
-            <label for="exampleInputPassword1">Enter your password:</label>
-            <div class="input-group mb-2">
+            <div class="input-group">
                 <div class="input-group-prepend">
                     <div class="input-group-text">*</div>
                 </div>
-                <input type="password" class="form-control" id="inlineFormInputGroup" placeholder="Password" required>
+                <input type="password" class="form-control control" id="password" placeholder="Password" required>
             </div>
+            <small><label class="text-muted" for="password">Enter your password:</label></small>
         </div>
         <br>
         <div class="d-flex justify-content-center">

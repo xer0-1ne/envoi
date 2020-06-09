@@ -89,11 +89,10 @@ html {
 
 .login-form p {
     font-family: 'Roboto', sans-serif;
-    font-weight: 900;
+    font-weight: 500;
 }
 
 .login-welcome {
     border-bottom: .125em dashed #ddd;
     color: #888;
-
 }

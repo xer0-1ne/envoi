@@ -2,6 +2,7 @@
 
     include "admin-header.php";
 
+    //populate edit form with info in the post
     if(isset($_GET['file'])) {
         
         //get file from address
@@ -19,7 +20,7 @@
         $post_time = $post_data->get_time();
     }
 
-
+    //overwrite the current file with the new information
     if(isset($_POST['submit'])) {
 
         //create array to store post data
@@ -45,13 +46,23 @@
     <div class="d-flex flex-column" id="content-wrapper">
         <div id="content">
             <div class="container-fluid shadow admin-navbar-dark">
-                <h4 class="text-light p-3 text-center">Add Content</h4>
+                <h4 class="text-light p-3 text-center">Edit Content</h4>
             </div>
 
             <form action="" method="post">
                 <div class="row">
                     <div class="container col-md-9">
-                        <label class="my-1 mr-2" for="selection">Choose Content Type</label>
+                        <label class="my-1 mr-2 small" id="title" for="title">Title:</label>
+                        <input type="text" value="<?php echo $post_title; ?>" class="input-group form-control form-group" name="title" required>
+                        <label class="my-1 mr-2 small" id="content" for="content">Content:</label>
+                        <textarea class="input-group form-control form-group post-textarea" rows="15" name="content"><?php echo $post_content; ?></textarea>
+                    </div><!-- end of the left side -->
+
+                    <div class="container col-md-3 ">
+                        <label class="my-1 mr-2" for="info">Content Info</label>
+                        <br>
+                        <label class="my-1 mr-2 small" for="post_type">Post Type:</label>
+
                         <select class="form-control" name="post_type">
                             <?php 
                                 //create array for post types
@@ -74,18 +85,6 @@
                             <option class="select-hr" disabled>----------</option>
                             <option value="page" disabled>Page</option>
                         </select>
-                        <hr>
-                        <label class="my-1 mr-2 small" id="title" for="title">Title:</label>
-                        <input type="text" value="<?php echo $post_title; ?>" class="input-group form-control form-group" name="title" required>
-                        <label class="my-1 mr-2 small" id="content" for="content">Content:</label>
-                        <textarea class="input-group form-control form-group post-textarea" rows="15" name="content"><?php echo $post_content; ?></textarea>
-                    </div><!-- end of the left side -->
-
-                    <div class="container col-md-3 ">
-                        <label class="my-1 mr-2" for="info">Content Info</label><br>
-
-                        <input class="btn btn-secondary form-control form-group" type="submit" name="save" value="Save for Later">
-                        <input class="btn btn-danger form-control form-group" type="submit" name="submit" value="Post">
 
                         <label class="my-1 mr-2 small" for="date">Status:</label>
                         <select class="form-control form-group" name="status">
@@ -113,6 +112,9 @@
                         <label class="my-1 mr-2 small" for="time">Time:</label>
                         <input class="input-group form-control form-group" type="time" id="time" name="time" value="<?php echo $post_time; ?>">
                         <hr>
+                        
+                        <input class="btn btn-danger form-control form-group" type="submit" name="submit" value="Save & Post">
+
 
                     </div><!-- end of the right side -->
                 </div>

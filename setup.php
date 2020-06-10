@@ -89,7 +89,7 @@
                         <div class="row mb-4 ml-2">
                             <input class="form-check-input" type="checkbox" value="" id="agree_to_use" required>
                             <label class="form-check-label" for="agree_to_use">
-                                I understand that, by using Envoi, I assume full responsibility for all content posted, published and distributed.  Furthermore, if I link any publish social media services with Envoi, I agree to adhere with all rules and regulations set forth by these social media services.  Envoi assumes no responsibility for illicit content, illegal activity and/or other activity that could result in harm to someone or something.  I freely use this product at my own risk and will accept responsibility for how I choose to use Envoi.
+                                I understand that, by using Envoi, I assume full responsibility for all content posted, published and distributed.  Furthermore, if I link any public social media services with Envoi, I agree to adhere with all rules and regulations set forth by these social media services.  Envoi assumes no responsibility for illicit content, illegal activity and/or other activity that could result in harm to someone or something.  I freely use this product at my own risk and will accept responsibility for how I choose to use Envoi.
                             </label>
                         </div>
                         

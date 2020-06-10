@@ -25,4 +25,5 @@
     <link rel="stylesheet" href="<?php echo $site_url; ?>resources/css/style.css">
     
 </head>
+<body>
 

@@ -6,6 +6,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background: #fff !important;
@@ -20,13 +24,12 @@ html {
 }
 
 .head {
-    
     padding-top: 30px;
     margin: auto;
     text-align: center;
 }
 
-.head a {
+.title {
     font-family: 'Arvo', serif;
     font-size: 3.2em;
     color: #555;
@@ -43,6 +46,17 @@ html {
     max-width: 500px;
     text-align: center;
 }
+
+.username {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+
+.user-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
 
 .profile-picture {
     max-width: 150px;
@@ -92,7 +106,16 @@ html {
     font-weight: 500;
 }
 
-.login-welcome {
-    border-bottom: .125em dashed #ddd;
-    color: #888;
+.v-center {
+  min-height: 100vh;
+  display: flex;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.setup-body {
+    max-width: 700px;
 }

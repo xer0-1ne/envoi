@@ -14,10 +14,8 @@
     $config_file = CONFIG_DIR . 'config.php';
     $functions_file = INCLUDES_DIR . 'functions.php';
 
-    include $config_file;
     include $functions_file;
 
     date_default_timezone_set($timezone);
-
 
 ?>

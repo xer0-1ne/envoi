@@ -1,9 +1,9 @@
 <div class="container author-block">
   <div class="row">   
        <div class="container">
-            <img class="rounded-circle profile-picture" src="<?php echo $profile_picture; ?>" />
-            <p class="name h3 font-weight-bold"><?php echo $username; ?></p>
-            <p class="title h5"><?php echo $user_title; ?></p>
+            <img class="rounded-circle profile-picture mt-3 mb-3" src="<?php echo $profile_picture; ?>" />
+            <p class="h3 username"><?php echo $username; ?></p>
+            <p class="h5 user-title"><?php echo $user_title; ?></p>
             <p class="description text-justify"><?php echo $user_about; ?></p>
             <div id="social-icons">
                 <ul class="list-inline text-center">

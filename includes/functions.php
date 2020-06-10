@@ -1,6 +1,6 @@
 <?php #fucntions.php
 
-include "classes.php";
+include_once "classes.php";
 
 //return if a line begins with "check"
 function beginWith($line, $check) {
@@ -207,7 +207,7 @@ function displayPosts() {
     if (trim($post_status) != "Draft" ) {
 
         echo "<div class='post'>" .
-            "<a href='#' class='nounderline h2'>" .
+            "<a href='#' class='h2'>" .
                 $post_title . "</a><br>" .
             "<span class='small font-weight-bold'>Posted on: " .
                 $post_date . " at " . $post_time . "</span><br>" .

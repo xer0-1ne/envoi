@@ -1,4 +1,4 @@
-<?php #class.user.php
+<?php # e-core/classes/class.user.php
 
 //security check
 defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
@@ -11,7 +11,10 @@ class User {
         'lastName' => '',
         'password' => '',
         'salt' => '',
-        'email' => ''
+        'email' => '',
+        'title' => '',
+        'about' => ''
+    
     ];
     
     /*

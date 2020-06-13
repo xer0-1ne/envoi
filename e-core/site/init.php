@@ -1,4 +1,4 @@
-<?php #init.php
+<?php # e-core/site/init.php
 
 //security check
 defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
@@ -11,7 +11,7 @@ defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
 //define base folders
 define('DIR_CONTENT', DIR_ROOT . 'e-content' . SLASH);
-define('DIR_THEMES', DIR_ROOT . 'e-theme' . SLASH);
+define('DIR_THEMES', DIR_ROOT . 'e-themes' . SLASH);
 define('DIR_RESOURCES', DIR_CORE . 'resources' . SLASH);
 
 //define core paths
@@ -30,12 +30,24 @@ define('DIR_MODULES', DIR_CONTENT . "modules" . SLASH);
 define('DIR_POSTS', DIR_CONTENT . "posts" . SLASH);
 define('DIR_UPLOADS', DIR_CONTENT . "uploads" . SLASH);
 
+//define HTML tags
+define('BR', "<br>");
+
 /*
  * Include all required files
  */
 
+//convert to array at some point... for now, will work with static file
+include(DIR_DATABASE . "config.php");
+
+//variable declaration
+include(DIR_CORE . "variables.php");
+
 //include global functions and variables
 include(DIR_CORE . "functions.php");
-include(DIR_CORE . "variables.php");
+
+/*
+ * Initialize site requirements
+ */
 
 ?>

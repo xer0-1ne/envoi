@@ -1,4 +1,4 @@
-<?php #index.php
+<?php # index.php
 
 /* Envoi Blog
  * https://github.com/xer0-1ne/envoi
@@ -17,7 +17,7 @@ define('DIR_SITE', DIR_CORE . 'site' . SLASH);      //define default site path
 
 define('CHECK_SECURE_ENVOI', true);                 //define security constant
 
-//require_once(DIR_SITE . 'init.php');                //require init.php for site requirements
+require_once(DIR_SITE . 'init.php');                //require init.php for site requirements
 
 require(DIR_SITE . 'site.php');                     //go to site
 

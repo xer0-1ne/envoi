@@ -30,18 +30,23 @@ define('DIR_BASE_JS', URL_RESOURCES . 'js' . SLASH);
 
 //define content storage location
 define('DIR_MODULES', DIR_CONTENT . "modules" . SLASH);
-define('DIR_POSTS', DIR_CONTENT . "posts" . SLASH);
+//using demo posts for now, but will need to switch to live posts 
+//define('DIR_POSTS', DIR_CONTENT . "posts" . SLASH);
+define('DIR_POSTS', DIR_CONTENT . "demo-posts" . SLASH);
 define('DIR_UPLOADS', DIR_CONTENT . "uploads" . SLASH);
 
 //define HTML tags
-define('BR', "<br>");
+define('BR', "<br>\n");
+define('SP', " ");
 
 /*
  * Include all required files
  */
 
 //convert to array at some point... for now, will work with static file
+//BOTH OF THE FILES WILL NOT BE INCLUDED AS THEY WILL STORE SENSITIVE ARRAYS
 include(DIR_DATABASE . "config.php");
+include(DIR_DATABASE . "user.php");
 
 //used for base stylesheets
 define('URL_CURRENT_THEME', "e-themes" . SLASH . $conf_current_theme);
@@ -54,7 +59,7 @@ include(DIR_CORE . "variables.php");
 include(DIR_CORE . "functions.php");
 
 //include HTML structure class
-include(DIR_CLASSES . "html_header.class.php");
+include(DIR_CLASSES . "html_tags.class.php");
 
 
 /*

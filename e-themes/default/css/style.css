@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #fff !important;
+    color: #555;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.head {
+    padding-top: 30px;
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Arvo', serif;
+    font-size: 3.2em;
+    color: #555;
+    text-decoration: none !important;
+}
+
+.author-block {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: .125em dashed #ddd;
+    border-bottom: .125em dashed #ddd;
+    margin-bottom: 30px;
+    display: inline-block;
+    max-width: 500px;
+    text-align: center;
+}
+
+.username {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+
+.user-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+
+.profile-picture {
+    max-width: 150px;
+    min-width: 100px;
+}
+
+.search {
+    max-width: 600px;
+    margin: auto;
+}
+
+.search input {
+    font-color: #ccc;
+    border-color: #ccc;
+}
+
+.post {
+    margin: 10px;
+    padding: 15px;
+}
+
+.site-logo {
+    padding: 20px 0 20px 0;
+    border-bottom: 1px dashed #dedede;
+}
+
+.box-padding {
+    margin: 10px;
+    padding: 15px;
+}
+
+.rounded-pill {
+    border-radius:50rem!important
+}
+
+.nounderline {
+    text-decoration: none !important;
+}
+
+.login-form {
+    border: 1px solid #ddd;
+    padding: 30px;
+}
+
+.login-form p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.v-center {
+  min-height: 100vh;
+  display: flex;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.setup-body {
+    max-width: 700px;
+}

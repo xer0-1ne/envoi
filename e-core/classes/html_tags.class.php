@@ -1,46 +1,78 @@
-<?php 
+<?php #e-core/classes/html_tags.class.php
 
-class HtmlTag {
-    
-    
-    
-    
+//security check
+defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
+class HtmlConstructor {
+    //add quotes
+    private function add_quotes($value) {
+        return "'" . $value . "'";
+    }
 
+    //create doctype
+    public function create_doctype() {
+        echo "<!doctype html>\n";
+    }
+    
+    //create break line tag
+    public function create_br() {
+        echo "<br>\n";
+    }
+
+    //create horizontal rule tag
+    public function create_hr() {
+        echo "<hr>\n";
+    }
+    
+    public function open_tag(string $tag) {
+        
+        echo $tag_line = "<" . $tag . ">\n";
+
+    }
+    
+    public function close_tag(string $tag) {
+        
+        echo $tag_line = "</" . $tag . ">\n";
+
+    }
+
+    public function create_tag(string $tag, array $attributes) {
+        
+        //build basic line structure
+        $tag_line = "<" . $tag . SP;
+        
+        //get attributes from array, get key as attribute title and value as attribute value
+        foreach ($attributes as $key => $value ) {
+                $tag_line .= $key . "=" . $this->add_quotes($value) . SP;
+        }
+        
+        //close tag line
+        $tag_line .= ">\n";
+        
+        //echo tag line
+        echo $tag_line;
+
+    }
+    
+    public function create_tag_text(string $tag, string $l_text, array $attributes) {
+        
+        //build basic line structure
+        $tag_line = "<{$tag} ";
+        
+        //get attributes from array, get key as attribute title and value as attribute value
+        foreach ($attributes as $key => $value ) {
+                $tag_line .= $key . "=" . $this->add_quotes($value) . SP;
+        }
+        
+        //close tag line
+        $tag_line .= ">" . $l_text . "</{$tag}>\n";
+        
+        //echo tag line
+        echo $tag_line;
+
+    }
     
 }
-
-/*
-
-//section tags that need to exist
-<html lang=""> </html>
-<head> </head>
-<body id="" class""> </body>
-<header> </header>
-<nav> </nav>
-
-
-//Need to create a div tag that is open-ended and can be closed later
-<div class="1 2 3 4"> </div>
-<title> </title>
-<a class="1 2 3 4" href="html_link">  </a>
-<h#> </h#>
-<span class="1 2 3"> </span>
-<form method="" action="" class=""> </form>
-
-
-//tags that are one-liners and don't require closing
-<meta name="" content=""> OR <meta charset="">
-<link rel="" href="" type="">
-<br>
-<hr>
-<input type="" class="" value"">
-
-
-
-
-
-*/
 
 ?>
 

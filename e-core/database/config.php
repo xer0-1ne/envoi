@@ -12,5 +12,6 @@ $conf_current_theme     = "default";
 $conf_site_url          = "http://localhost/envoi/";
 $conf_site_title        = "Envoi";
 $conf_site_slogan       = "One place to share it all";
+$conf_profile_picture   = DIR_BASE_IMAGES . "profile.png";
 
 ?>

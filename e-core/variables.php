@@ -18,4 +18,9 @@ $var_header_info = [
 $var_base_bootstrap_css         = 'bootstrap.min.css';
 $var_style                      = 'style.css';
 
+$var_base_bootstrap_js          = 'jquery.min.js';
+$var_base_jquery_js             = 'bootstrap.min.js';
+    
+$var_footer_text                = 'Built with HTML5 and Bootstrap.  Copyright © ' . $conf_site_title . ' ' . date("Y") . '.';
+
 ?>

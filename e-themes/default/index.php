@@ -20,6 +20,7 @@ $page->open_tag('head');
         $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>URL_CURRENT_THEME_CSS . $var_style ]);
 $page->close_tag('head');
 
+//open body section
 $page->open_tag('body');
 
     //site header section
@@ -47,7 +48,7 @@ $page->open_tag('body');
             $page->close_tag('div');
 
             //author section
-            $page->create_tag('div', ['class'=>'container author-blocks']);
+            $page->create_tag('div', ['class'=>'container author-block']);
                 $page->create_tag('div', ['class'=>'row']);
                     $page->create_tag('div', ['class'=>'container']);
                         $page->create_tag('img', ['class'=>'rounded-circle profile-picture mt-3 mb-3',
@@ -92,6 +93,8 @@ $page->open_tag('body');
     //main section area
     $page->open_tag('main');
 
+    //include post constructor
+    include(DIR_SITE_STRUCTURE . "post_constructor.php");
 
     $page->close_tag('main');
 
@@ -113,16 +116,8 @@ $page->open_tag('body');
         $page->close_tag('script');
 
     $page->close_tag('footer');
-
-
-
-
-/*
-
-<!-- All required scripts -->
-    <script src="<?php echo $site_url; ?>resources/js/jquery.min.js"></script>
-    <script src="<?php echo $site_url; ?>resources/js/bootstrap.min.js"></script> 
-*/
+$page->close_tag('body');
+$page->close_tag('html');
 
 ?>
 

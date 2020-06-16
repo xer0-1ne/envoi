@@ -29,6 +29,10 @@ html {
     text-align: center;
 }
 
+.admin-bar {
+    
+}
+
 .title {
     font-family: 'Arvo', serif;
     font-size: 3.2em;
@@ -43,7 +47,7 @@ html {
     border-bottom: .125em dashed #ddd;
     margin-bottom: 30px;
     display: inline-block;
-    max-width: 500px;
+    max-width: 600px;
     text-align: center;
 }
 

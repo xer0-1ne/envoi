@@ -19,6 +19,16 @@ define('CHECK_SECURE_ENVOI', true);                 //define security constant
 
 require_once(DIR_SITE . 'init.php');                //require init.php for site requirements
 
-require(DIR_SITE . 'site.php');                     //go to site
+//need to make this more dynamic
+if ( $_SERVER['REQUEST_URI'] === '/envoi/admin/'  ) {
+    include(DIR_ADMIN_VIEWS . 'dashboard.php');
+    
+} else if ( $_SERVER['REQUEST_URI'] === '/envoi/login/' ){
+    include(DIR_ADMIN_VIEWS . '');
+    
+}else{
+    include(DIR_SITE . 'site.php');
+}
 
+    
 ?>

@@ -32,8 +32,14 @@ define('DIR_BASE_JS', URL_RESOURCES . 'js' . SLASH);
 define('DIR_MODULES', DIR_CONTENT . "modules" . SLASH);
 //using demo posts for now, but will need to switch to live posts 
 //define('DIR_POSTS', DIR_CONTENT . "posts" . SLASH);
-define('DIR_POSTS', DIR_CONTENT . "demo-posts" . SLASH);
-define('DIR_UPLOADS', DIR_CONTENT . "uploads" . SLASH);
+define('DIR_CONTENT_POSTS', DIR_CONTENT . "demo-posts" . SLASH);
+define('DIR_CONTENT_UPLOADS', DIR_CONTENT . "uploads" . SLASH);
+
+//admin views
+define('DIR_ADMIN_VIEWS', DIR_ADMIN . 'views' . SLASH);
+
+//admin site/structure
+define('DIR_SITE_STRUCTURE', DIR_SITE . 'structure' . SLASH);
 
 //define HTML tags
 define('BR', "<br>\n");
@@ -60,6 +66,7 @@ include(DIR_CORE . "functions.php");
 
 //include HTML structure class
 include(DIR_CLASSES . "html_tags.class.php");
+include(DIR_CLASSES . "post.class.php");
 
 
 /*

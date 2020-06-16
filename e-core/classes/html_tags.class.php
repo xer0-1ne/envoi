@@ -11,7 +11,7 @@ class HtmlConstructor {
 
     //create doctype
     public function create_doctype() {
-        echo "<!doctype html>\n";
+        echo "<!DOCTYPE html>\n";
     }
     
     //create break line tag
@@ -71,7 +71,6 @@ class HtmlConstructor {
         echo $tag_line;
 
     }
-    
 }
 
 ?>

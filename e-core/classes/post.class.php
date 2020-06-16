@@ -32,22 +32,16 @@ class Post {
 
     //set title from $line variable
     function set_title($line) {
-        
-        //set $title value         
         $this->title = $this->get_header_data($line);
     }
 
     //set title from $line variable
     function set_type($line) {
-        
-        //set $type value         
         $this->type = $this->get_header_data($line);
     }
 
     //set status from $line variable
     function set_status($line) {
-        
-        //set $status value         
         $this->status = $this->get_header_data($line);
     }
     
@@ -57,21 +51,16 @@ class Post {
         //set the pretty date
         $this->set_pretty_date($this->get_header_data($line));
 
-        //set date YYYYMMDD
         $this->post_date = $this->get_header_data($line);
     }
 
     //set time from $line variable
     function set_time($line) {
-        
-        //set time HHMM
         $this->post_time = $this->get_header_data($line);
     }
     
     //set content
     function set_content($content) {
-
-        //set content (by concatinating information to current line)
         $this->content = $content;
     }
     
@@ -120,8 +109,6 @@ class Post {
     
     //get value without header
     function get_header_data($value) {
-        
-        //ignore everything before ": "
         return substr($value, strpos($value, ": ") + 1);
     }
     

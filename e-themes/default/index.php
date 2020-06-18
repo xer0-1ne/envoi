@@ -120,7 +120,3 @@ $page->close_tag('body');
 $page->close_tag('html');
 
 ?>
-
-
-
-

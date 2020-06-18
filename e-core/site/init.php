@@ -65,7 +65,7 @@ include(DIR_CORE . "variables.php");
 include(DIR_CORE . "functions.php");
 
 //include HTML structure class
-include(DIR_CLASSES . "html_tags.class.php");
+include(DIR_CLASSES . "html.class.php");
 include(DIR_CLASSES . "post.class.php");
 
 

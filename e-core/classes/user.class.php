@@ -21,23 +21,23 @@ class User {
      * Functions for creating the user
      */
     
-    function createUser() {};
+    function createUser() {}
     
     /*
      * 'Setters' for User
      */
     
-    function set_username() {};
+    function set_username() {}
     
-    function set_firstName() {};
+    function set_firstName() {}
     
-    function set_lastName() {};
+    function set_lastName() {}
     
-    function set_password() {};
+    function set_password() {}
     
-    function set_salt() {};
+    function set_salt() {}
     
-    function set_email() {};
+    function set_email() {}
     
     /*
      * 'Getters' for User
@@ -45,47 +45,44 @@ class User {
     
     function get_username() {
         return VALUE;
-    };
+    }
     
     function get_firstName() {
         return VALUE;
-    };
+    }
     
     function get_lastName() {
         return VALUE;
-    };
+    }
     
     function get_password() {
         return VALUE;
-    };
+    }
     
     function get_salt() {
         return VALUE;
-    };
+    }
     
     function get_email() {
         return VALUE;
-    };
+    }
        
     
     /*
      * Functions for changing information
      */
-    function change_username() {};
+    function change_username() {}
     
-    function change_firstName() {};
+    function change_firstName() {}
     
-    function change_lastName() {};
+    function change_lastName() {}
     
-    function change_password() {};
+    function change_password() {}
     
-    function change_salt() {};
-    
-    function change_email() {};
-    
-    
-    
-    
+    function change_salt() {}
+
+    function change_email() {}
+  
 }
 
 ?>

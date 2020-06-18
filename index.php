@@ -18,13 +18,16 @@ define('DIR_SITE', DIR_CORE . 'site' . SLASH);      //define default site path
 define('CHECK_SECURE_ENVOI', true);                 //define security constant
 
 require_once(DIR_SITE . 'init.php');                //require init.php for site requirements
+require_once(DIR_CORE . 'database' . SLASH . 'config.php');
+
+$root_url = $conf_site_url;
 
 //need to make this more dynamic
 if ( $_SERVER['REQUEST_URI'] === '/envoi/admin/'  ) {
     include(DIR_ADMIN_VIEWS . 'dashboard.php');
     
 } else if ( $_SERVER['REQUEST_URI'] === '/envoi/login/' ){
-    include(DIR_ADMIN_VIEWS . '');
+    include(DIR_SITE . 'login.php');
     
 }else{
     include(DIR_SITE . 'site.php');

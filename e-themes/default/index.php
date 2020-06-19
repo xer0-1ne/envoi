@@ -3,11 +3,26 @@
 //security check
 defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
+/*
+echo "<!doctype html>\n";
+
+$html = '<!doctype html><html><body><div><p>hello</p></div></body></html>';
+
+$dom = new DOMDocument();
+
+$dom->preserveWhiteSpace = false;
+$dom->loadHTML($html,LIBXML_HTML_NOIMPLIED);
+$dom->formatOutput = true;
+
+print $dom->saveXML($dom->documentElement);
+*/
+
 //new header object
 $page = new HtmlConstructor();
 
 //create header
 $page->create_doctype();
+
 $page->create_tag('html', ['lang'=>$var_header_info['html_lang']] );
 $page->open_tag('head');
         $page->create_tag('meta', ['charset'=>$var_header_info['html_meta_charset']] );
@@ -30,7 +45,6 @@ $page->open_tag('body');
         $page->create_tag('div', ['class'=>'text-center h6']);
             $page->create_tag('span', ['class'=>'small text-dark']);
                 $page->create_tag_text('a', 'Admin', ['href'=>$conf_site_url . "admin/"] );
-                $page->create_br();
                 $page->create_tag_text('a', 'Login', ['href'=>$conf_site_url . "login/"] );
             $page->close_tag('span');
         $page->close_tag('div');
@@ -40,10 +54,7 @@ $page->open_tag('body');
             $page->create_tag('div', ['class'=>'row']);
                 $page->create_tag('div', ['class'=>'col-md-12']);
                     $page->create_tag_text('a', $conf_site_title, ['href'=>$conf_site_url, 'class'=>'page-header h1 title']);
-                    $page->create_tag('small', ['class'=>'h3']);
-                        $page->create_br();
-                        echo $conf_site_slogan;
-                    $page->close_tag('small');
+                    $page->create_tag_text('small', $conf_site_slogan, ['class'=>'h4']);
                 $page->close_tag('div');
             $page->close_tag('div');
 
@@ -94,7 +105,7 @@ $page->open_tag('body');
     $page->open_tag('main');
 
     //include post constructor
-    include(DIR_SITE_STRUCTURE . "post_constructor.php");
+    $page->get_posts();
 
     $page->close_tag('main');
 
@@ -118,5 +129,7 @@ $page->open_tag('body');
     $page->close_tag('footer');
 $page->close_tag('body');
 $page->close_tag('html');
+
+$page->display();
 
 ?>

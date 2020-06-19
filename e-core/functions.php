@@ -135,6 +135,7 @@ function build_post($file) {
     return $post;
 }
 
+//construct posts
 function post_fetch(&$html) {
 
     //map posts

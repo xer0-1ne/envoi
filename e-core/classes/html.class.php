@@ -5,7 +5,7 @@ defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
 class HtmlConstructor {
 
-    private $page;
+    protected $page;
     protected $html;
 
     public function __construct() {
@@ -14,9 +14,10 @@ class HtmlConstructor {
 
     public function display() {
         $this->page->preserveWhiteSpace = false;
+        $this->page->loadHTML($this->html);
         $this->page->formatOutput = true;
-        //$this->page->saveXML($this->html,LIBXML_HTML_NOIMPLIED);
-        echo $this->html;
+
+        echo $this->page->saveXML($this->page->documentElement);
     }
 
     public function create_doctype() {
@@ -39,7 +40,7 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
     
-    public function create_tag_text(string $tag, string $l_text, array $attributes) {
+    public function create_tag_text(string $tag, array $attributes, string $l_text) {
         //build basic line structure
         $tag_line = "<{$tag} ";
         

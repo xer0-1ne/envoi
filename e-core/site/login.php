@@ -1,4 +1,8 @@
 <?php 
+
+//security check
+defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
+
 if (!empty($_POST)) {
     if (isset($_POST['password'])) {
         
@@ -39,14 +43,12 @@ $page->open_tag('head');
         $page->create_tag('meta', ['name'=>'author', 'content'=>$var_header_info['html_meta_author']] );
         $page->create_tag('meta', ['name'=>'url', 'content'=>$var_header_info['html_meta_url']] );
         $page->create_tag('meta', ['name'=>'robots', 'content'=>$var_header_info['html_meta_robots']] );
-        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>$root_url . 'e-core/resources/css/' . $var_base_bootstrap_css ]);
-        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>$root_url . 'e-core/resources/css/style.css' ]);
-
+        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>$conf_site_url . 'e-core/resources/css/' . $var_base_bootstrap_css ]);
+        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>$conf_site_url . 'e-core/resources/css/style.css' ]);
 $page->close_tag('head');
+$page->display();
 
 ?>
-
-
 
 <!-- login form -->
 <div class="row v-center">

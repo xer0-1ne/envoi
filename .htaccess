@@ -4,6 +4,10 @@
 RewriteEngine on
 
 # All URL process by index.php
+
+RewriteCond %{REQUEST_URI} !^/?(resources)/
+
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*) index.php [PT,L]

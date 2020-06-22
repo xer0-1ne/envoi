@@ -15,7 +15,7 @@ define('DIR_THEMES', DIR_ROOT . 'e-themes' . SLASH);
 define('DIR_RESOURCES', DIR_CORE . 'resources' . SLASH);
 
 //used for base stylesheets
-define('URL_RESOURCES', "e-core" . SLASH . "resources" . SLASH);
+define('URL_RESOURCES', $conf_site_url . "e-core" . SLASH . "resources" . SLASH);
 
 //define core paths
 define('DIR_ADMIN', DIR_CORE . 'admin' . SLASH);

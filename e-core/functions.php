@@ -65,7 +65,7 @@ function get_post_meta(array $post_map) {
                                       $month . SLASH . $name_of_post . SLASH,
                         'file' => $file,
                         'year' => $year,
-                        'month' => $month
+                        'month' => $month,
                     );
                 }
             }

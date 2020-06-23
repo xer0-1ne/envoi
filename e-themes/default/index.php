@@ -17,9 +17,10 @@ $page->open_tag('head');
         $page->create_tag('meta', ['name'=>'author', 'content'=>$var_header_info['html_meta_author']] );
         $page->create_tag('meta', ['name'=>'url', 'content'=>$var_header_info['html_meta_url']] );
         $page->create_tag('meta', ['name'=>'robots', 'content'=>$var_header_info['html_meta_robots']] );
-        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>DIR_BASE_CSS . $var_base_bootstrap_css ]);
-        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>URL_CURRENT_THEME_CSS . $var_style ]);
-        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>DIR_BASE_FONTS . 'font-awesome' . SLASH . 'fontawesome-all.min.css' ]);
+        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>DIR_BASE_CSS . "bootstrap.min.css" ]);
+        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>URL_CURRENT_THEME_CSS . "theme.css" ]);
+        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>DIR_BASE_CSS . "style.css" ]);
+        $page->create_tag('link', ['rel'=>'stylesheet', 'href'=>DIR_FONT_AWESOME . 'fontawesome-all.min.css' ]);
 $page->close_tag('head');
 
 //open body section
@@ -51,30 +52,30 @@ $page->open_tag('body');
                                                   'src'=>$conf_profile_picture]);
                         $page->create_tag_text('p', ['class'=>'h3 username'], $user_username);
                         $page->create_tag_text('p', ['class'=>'h5 user-title'], $user_title);
-                        $page->create_tag_text('p', ['class'=>'description text-justify'], $user_about);
+                        $page->create_tag_text('p', ['class'=>'description author-about text-justify'], $user_about);
                         $page->create_tag('div', ['id'=>'social-icons']);
                             $page->create_tag('ul', ['class'=>'list-inline text-center']);
                                 $page->create_tag('li', ['class'=>'list-inline-item']);
                                     $page->create_tag('span', ['class'=>'fa-stack fa-lg']);
-                                        $page->create_tag('i', ['class'=>'fab fa-twitter']);
+                                        $page->create_tag('i', ['class'=>'s_icon fab fa-twitter']);
                                         $page->close_tag('i');
                                     $page->close_tag('span');
                                 $page->close_tag('li');
                                 $page->create_tag('li', ['class'=>'list-inline-item']);    
                                     $page->create_tag('span', ['class'=>'fa-stack fa-lg']);
-                                        $page->create_tag('i', ['class'=>'fab fa-facebook']);
+                                        $page->create_tag('i', ['class'=>'s_icon fab fa-facebook']);
                                         $page->close_tag('i');
                                     $page->close_tag('span');
                                 $page->close_tag('li');
                                 $page->create_tag('li', ['class'=>'list-inline-item']);
                                     $page->create_tag('span', ['class'=>'fa-stack fa-lg']);
-                                        $page->create_tag('i', ['class'=>'fab fa-github']);
+                                        $page->create_tag('i', ['class'=>'s_icon fab fa-github']);
                                         $page->close_tag('i');
                                     $page->close_tag('span');
                                 $page->close_tag('li');
                                 $page->create_tag('li', ['class'=>'list-inline-item']);
                                     $page->create_tag('span', ['class'=>'fa-stack fa-lg']);
-                                        $page->create_tag('i', ['class'=>'fab fa-linkedin']);
+                                        $page->create_tag('i', ['class'=>'s_icon fab fa-linkedin']);
                                         $page->close_tag('i');
                                     $page->close_tag('span');
                                 $page->close_tag('li');
@@ -88,7 +89,6 @@ $page->open_tag('body');
     //main section area
     //gets all posts
     $page->get_posts();
-
 
     //footer section area
         $page->create_tag('div', ['class'=>'col-md-12']);

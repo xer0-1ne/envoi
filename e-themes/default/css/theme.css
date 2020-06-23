@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-* {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-    text-decoration: none !important;
-}
-
 body {
     font-family: 'Roboto', sans-serif;
     background: #fff !important;
@@ -20,6 +11,11 @@ html {
     min-height: 100%;
     max-width: 900px;
     margin: auto;
+}
+
+.site-logo {
+    padding: 20px 0 20px 0;
+    border-bottom: 1px dashed #dedede;
 }
 
 .head {
@@ -42,7 +38,7 @@ html {
     border-bottom: .125em dashed #ddd;
     margin-bottom: 30px;
     display: inline-block;
-    max-width: 600px;
+    max-width: 800px;
     text-align: center;
 }
 
@@ -53,7 +49,8 @@ html {
 
 .user-title {
     font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    margin-top: -25px;
+    font-weight: 200;
 }
 
 .profile-picture {
@@ -74,11 +71,7 @@ html {
 .post {
     margin: 10px;
     padding: 15px;
-}
-
-.site-logo {
-    padding: 20px 0 20px 0;
-    border-bottom: 1px dashed #dedede;
+    font-size: 20px;
 }
 
 .box-padding {
@@ -94,26 +87,18 @@ html {
     text-decoration: none !important;
 }
 
-.login-form {
-    border: 1px solid #ddd;
-    padding: 30px;
-}
-
-.login-form p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-}
-
-.v-center {
-    min-height: 100vh;
-    display: flex;
-}
-
 .my-auto {
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.setup-body {
-    max-width: 700px;
+.post,
+.author-about {
+    font-size: 18px;
+}
+
+.s_icon {
+    font-size: 2em;
+    padding: 5px;
+    margin-bottom: 10px;
 }

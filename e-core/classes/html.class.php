@@ -14,7 +14,9 @@ class HtmlConstructor {
 
     public function display() {
         $this->page->preserveWhiteSpace = false;
+        libxml_use_internal_errors(true);
         $this->page->loadHTML($this->html);
+        libxml_use_internal_errors(false);
         $this->page->formatOutput = true;
 
         echo $this->page->saveXML($this->page->documentElement);
@@ -39,6 +41,17 @@ class HtmlConstructor {
         //echo tag line
         $this->html .= $tag_line;
     }
+
+    public function create_simple_tag(string $tag) {
+        //build basic line structure
+        $tag_line = "<" . $tag . SP;
+        
+        //close tag line
+        $tag_line .= ">\n";
+        
+        //echo tag line
+        $this->html .= $tag_line;
+    }
     
     public function create_tag_text(string $tag, array $attributes, string $l_text) {
         //build basic line structure
@@ -56,6 +69,18 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
 
+    public function create_simple_tag_text(string $tag, string $l_text) {
+        //build basic line structure
+        $tag_line = "<{$tag} ";
+               
+        //close tag line
+        $tag_line .= ">" . $l_text . "</{$tag}>\n";
+        
+        //echo tag line
+        $this->html .= $tag_line;
+    }
+
+
     //add quotes
     private function add_quotes($value) {
         return "'" . $value . "'";
@@ -63,12 +88,12 @@ class HtmlConstructor {
     
     //create break line tag
     public function create_br() {
-        echo "<br>\n";
+        $this->html .= "<br>\n";
     }
 
     //create horizontal rule tag
     public function create_hr() {
-        echo "<hr>\n";
+        $this->html .= "<hr>\n";
     }
     
     public function open_tag(string $tag) {

@@ -15,7 +15,8 @@ define('DIR_THEMES', DIR_ROOT . 'e-themes' . SLASH);
 define('DIR_RESOURCES', DIR_CORE . 'resources' . SLASH);
 
 //used for base stylesheets
-define('URL_RESOURCES', $conf_site_url . "e-core" . SLASH . "resources" . SLASH);
+define('URL_SITE', $conf_site_url );
+define('URL_RESOURCES', URL_SITE . "e-core" . SLASH . "resources" . SLASH);
 
 //define core paths
 define('DIR_ADMIN', DIR_CORE . 'admin' . SLASH);
@@ -27,6 +28,8 @@ define('DIR_BASE_CSS', URL_RESOURCES . 'css' . SLASH);
 define('DIR_BASE_FONTS', URL_RESOURCES . 'fonts' . SLASH);
 define('DIR_BASE_IMAGES', URL_RESOURCES . 'images' . SLASH);
 define('DIR_BASE_JS', URL_RESOURCES . 'js' . SLASH);
+define('DIR_FONT_AWESOME', DIR_BASE_FONTS . 'font-awesome' . SLASH . 'fonts' . SLASH);
+define('DIR_ADMIN_RESOURCES', $conf_site_url . 'e-core' . SLASH . 'admin' . SLASH . 'resources' . SLASH );
 
 //define content storage location
 define('DIR_MODULES', DIR_CONTENT . "modules" . SLASH);
@@ -55,8 +58,7 @@ include(DIR_DATABASE . "config.php");
 include(DIR_DATABASE . "user.php");
 
 //used for base stylesheets
-define('URL_CURRENT_THEME', "e-themes" . SLASH . $conf_current_theme);
-define('URL_CURRENT_THEME_CSS', URL_CURRENT_THEME . SLASH . "css" . SLASH);
+define('URL_CURRENT_THEME_CSS', URL_SITE . "e-themes" . SLASH . $conf_current_theme . SLASH . "css" . SLASH);
 
 //variable declaration
 include(DIR_CORE . "variables.php");

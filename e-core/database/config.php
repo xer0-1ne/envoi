@@ -15,5 +15,6 @@ $conf_site_slogan       = "One place to share it all";
 
 $conf_host_url          =  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
+$conf_timezone               = "America/New_York";
 
 ?>

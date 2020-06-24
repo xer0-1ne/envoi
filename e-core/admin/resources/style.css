@@ -5,11 +5,7 @@
     margin-bottom: -10px;
 }
 
-.admin-header {
-    min-width: 600px;
-    max-width: 900px;
-}
-
+.admin-header,
 .admin-table {
     min-width: 600px;
     max-width: 900px;
@@ -23,4 +19,8 @@
 .admin-header-text {
     font-weight: 200;
     font-size: 1.3em;
+}
+
+.bg-white {
+    background-color: #ffffff !important;
 }

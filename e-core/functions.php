@@ -169,13 +169,15 @@ function post_fetch(&$html) {
 
             $post_dtg = "Posted on: " . $post_p_date . " at " . $post_time;
 
-            $html->create_tag('div', ['class'=>'post']);
-            $html->create_tag_text('a', ['class'=>'h2', 'href'=>'#'] , $post_title);
-            $html->create_tag_text('span', ['class'=>'small font-weight-bold'], $post_dtg);
-            $html->create_tag_text('span', ['class'=>'post'], $post_content);
-            $html->close_tag('div');
+            $html->create_node('div', ['class'=>'post']);
+            $html->create_text_node('a', ['class'=>'h2', 'href'=>'#'] , $post_title);
+            $html->create_text_node('span', ['class'=>'small font-weight-bold'], $post_dtg);
+            $html->create_text_node('span', ['class'=>'post'], $post_content);
+            $html->close_node('div');
         }
     }
 }
+
+
 
 ?>

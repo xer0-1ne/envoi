@@ -70,6 +70,9 @@ include(DIR_CORE . "functions.php");
 include(DIR_CLASSES . "html.class.php");
 include(DIR_CLASSES . "post.class.php");
 
+//set timezone
+date_default_timezone_set($conf_timezone);
+
 
 /*
  * Initialize site requirements

@@ -3,43 +3,43 @@
 //security check
 defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
-//scan for posts
-$post_scan = find_content(DIR_CONTENT_POSTS);
-
-//get metadata from posts
-$post_meta = get_post_meta($post_scan);
-
 //define the page title
 $page_title = 'View Posts';
 
 //Required for header and navigation
 include(DIR_ADMIN_VIEWS . "header.php");
 
-$admin->create_tag('div', ['class'=>'d-flex', 'id'=>'wrapper']);
+$admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
     include(DIR_ADMIN_VIEWS . "nav.php");
-    $admin->create_tag('div', [ 'class'=>'flex-column content container-fluid admin-body', 'id'=>'content-wrapper']);
-        $admin->create_tag('div', ['class'=>'admin-header']);
-            $admin->create_tag_text('span', ['class'=>'admin-header-text dark-text'], $page_title );
-        $admin->close_tag('div');
-        $admin->create_tag('table', ['class'=>'table table-sm table-hover table-striped admin-table']);
-            $admin->create_tag('thead', ['class'=>'thead-light']);
-                $admin->create_simple_tag('tr');
-                    $admin->create_simple_tag_text('th', 'Status');
-                    $admin->create_simple_tag_text('th', 'Title');
-                    $admin->create_simple_tag_text('th', 'Type');
-                    $admin->create_simple_tag_text('th', 'Date');
-                    $admin->create_simple_tag_text('th', 'Time');
-                    $admin->create_simple_tag_text('th', ' ');
-                    $admin->create_simple_tag_text('th', ' ');
-                $admin->close_tag('tr');
-            $admin->close_tag('thead');
-            $admin->create_simple_tag('tbody');
+    $admin->create_node('div', [ 'class'=>'bg-white flex-column content container-fluid admin-body', 'id'=>'content-wrapper']);
+        $admin->create_node('div', ['class'=>'admin-header']);
+            $admin->create_text_node('span', ['class'=>'admin-header-text dark-text'], $page_title );
+        $admin->close_node('div');
+        $admin->create_node('table', ['class'=>'table table-sm table-hover table-striped admin-table']);
+            $admin->create_node('thead', ['class'=>'thead-light']);
+                $admin->create_simple_node('tr');
+                    $admin->create_simple_text_node('th', 'Status');
+                    $admin->create_simple_text_node('th', 'Title');
+                    $admin->create_simple_text_node('th', 'Type');
+                    $admin->create_simple_text_node('th', 'Date');
+                    $admin->create_simple_text_node('th', 'Time');
+                    $admin->create_simple_text_node('th', ' ');
+                    $admin->create_simple_text_node('th', ' ');
+                $admin->close_node('tr');
+            $admin->close_node('thead');
+            $admin->create_simple_node('tbody');
+
+                //scan for posts
+                $post_scan = find_content(DIR_CONTENT_POSTS);
+
+                //get metadata from posts
+                $post_meta = get_post_meta($post_scan);
 
                 //start populating rows of posts
                 foreach ( $post_meta as $post_info ) {
 
                     //open table row
-                    $admin->create_simple_tag('tr');
+                    $admin->create_simple_node('tr');
 
                         //get path location for the markdown post file
                         $post_file_location = $post_info['location'] . $post_info['file'];
@@ -55,36 +55,34 @@ $admin->create_tag('div', ['class'=>'d-flex', 'id'=>'wrapper']);
                         $post_time      = $post_file_data->get_time();      
                         
                         //display the post meta data in the table fields
-                        $admin->create_simple_tag_text('td', $post_status);
-                        $admin->create_simple_tag_text('td', $post_title);
-                        $admin->create_simple_tag_text('td', $post_type);
-                        $admin->create_simple_tag_text('td', $post_date);
-                        $admin->create_simple_tag_text('td', $post_time);
+                        $admin->create_simple_text_node('td', $post_status);
+                        $admin->create_simple_text_node('td', $post_title);
+                        $admin->create_simple_text_node('td', $post_type);
+                        $admin->create_simple_text_node('td', $post_date);
+                        $admin->create_simple_text_node('td', $post_time);
 
                         //edit icon
-                        $admin->create_simple_tag('td');
-                            $admin->create_tag('a', ['href'=>'#']);
-                                $admin->create_tag('i', ['class'=>'fas fa-edit']);
-                                $admin->close_tag('i');
-                            $admin->close_tag('a');
-                        $admin->close_tag('td');
+                        $admin->create_simple_node('td');
+                            $admin->create_node('a', ['href'=>'#']);
+                                $admin->create_straight_node('i', ['class'=>'fas fa-edit']);
+                            $admin->close_node('a');
+                        $admin->close_node('td');
 
                         //delete icon
-                        $admin->create_simple_tag('td');
-                            $admin->create_tag('a', ['href'=>'#']);
-                                $admin->create_tag('i', ['class'=>'fas fa-trash red-text']);
-                                $admin->close_tag('i');
-                            $admin->close_tag('a');
-                        $admin->close_tag('td');
+                        $admin->create_simple_node('td');
+                            $admin->create_node('a', ['href'=>'#']);
+                                $admin->create_straight_node('i', ['class'=>'fas fa-trash red-text']);
+                            $admin->close_node('a');
+                        $admin->close_node('td');
 
                     //close table row
-                    $admin->close_tag('tr');
+                    $admin->close_node('tr');
                 }
 
-            $admin->close_tag('tbody');
-        $admin->close_tag('table');
-    $admin->close_tag('div');
-$admin->close_tag('div');
+            $admin->close_node('tbody');
+        $admin->close_node('table');
+    $admin->close_node('div');
+$admin->close_node('div');
 
 //required for footer
 include(DIR_ADMIN_VIEWS . "footer.php");

@@ -3,6 +3,45 @@
 //security check
 defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
+//populate the page with the edit information
+if (isset($_GET['edit'])) {
+
+    //get file from address
+    $post_file = DIR_CONTENT_POSTS . $_GET['edit'] . "default.md";
+    
+    //get post data
+    $post_data = build_post($post_file);
+    
+    //set post variables
+    $post_title     = trim($post_data->get_title());
+    $post_type      = trim(strtolower($post_data->get_type()));
+    $post_status    = trim(strtolower($post_data->get_status()));
+    $post_date      = date('Y-m-d', strtotime($post_data->get_date()));
+    $post_time      = date('H:i', strtotime($post_data->get_time()));
+    $post_content   = strip_tags($post_data->get_content());
+}
+
+//check if form has been submitted
+if(isset($_POST['submit'])) {
+
+    //create array to store post data
+    $post_data = array(
+        "post_title" => $_POST['title'],
+        "post_type" => $_POST['post_type'],
+        "post_status" => $_POST['status'],
+        "post_date" => $_POST['date'],
+        "post_year" => date("Y", strtotime($_POST['date'])),
+        "post_month" => date("m", strtotime($_POST['date'])),
+        "post_day" => date("d", strtotime($_POST['date'])),
+        "post_time" => $_POST['time'],
+        "post_content" => $_POST['content']
+    );
+    
+    //create post
+    create_post($post_data);
+    header("Location: " . $conf_site_url . "admin" . SLASH . "view-posts" . SLASH);
+}
+
 //define the page title
 $page_title = 'Edit Content';
 
@@ -21,11 +60,15 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
                 //left area
                 $admin->create_node('div', ['class'=>'container col-md-9']);
                     $admin->create_straight_text_node('label', ['class'=>'my-1 mr-2 small', 'id'=>'title', 'for'=>'title'], 'Title:');
-                    $admin->create_required_node('input', ['type'=>'text', 'class'=>'input-group form-control form-group', 'name'=>'title']);
+                    $admin->create_required_node('input', ['type'=>'text', 
+                                                           'class'=>'input-group form-control form-group', 
+                                                           'name'=>'title',
+                                                           'value'=>$post_title]);
                     $admin->create_straight_text_node('label', ['class'=>'my-1 mr-2 small', 'id'=>'content', 'for'=>'content'], 'Content:');
-                    $admin->create_straight_node('textarea', ['class'=>'input-group form-control form-group post-textarea', 
+                    $admin->create_straight_text_node('textarea', ['class'=>'input-group form-control form-group post-textarea', 
                                                             'id'=>'content_area', 
-                                                            'name'=>'content']);
+                                                            'name'=>'content'],
+                                                 $post_content);
                     
                     //using EasyMDE until Envoi has it's own markdown editor
                     $admin->create_simple_text_node('script', 'var easyMDE = new EasyMDE({element: document.getElementById("content_area")})');
@@ -38,20 +81,18 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
 
                             //post type drowndown selector
                             $admin->create_straight_text_node('label', ['class'=>'my-1 mr-2 small', 'for'=>'post_type'], 'Post Type: ');
-                            $admin->create_node('select', ['class'=>'form-control', 'name'=>'post_type']);
+                            $admin->create_node('select', ['class'=>'form-control', 'id'=>'post_type', 'name'=>'post_type']);
                                 $admin->create_straight_text_node('option', ['value'=>'post'], 'Post');                     
                                 $admin->create_straight_text_node('option', ['value'=>'photo'], 'Photo');                     
                                 $admin->create_straight_text_node('option', ['value'=>'video'], 'Video');
                                 $admin->create_straight_text_node('option', ['value'=>'upload'], 'Upload');
                                 $admin->create_straight_text_node('option', ['value'=>'url'], 'URL');
                                 $admin->create_straight_text_node('option', ['value'=>'quote'], 'Quote');
-                                $admin->create_straight_disabled_text_node('option', ['value'=>'select-hr'], '--------------');
-                                $admin->create_straight_text_node('option', ['value'=>'page'], 'Page');
                             $admin->close_node('select');
 
                             //post status dropdown selector
                             $admin->create_straight_text_node('label', ['class'=>'my-1 mr-2 small','for'=>'status'], 'Status: ');
-                            $admin->create_node('select', ['class'=>'form-control form-group', 'name'=>'status']);
+                            $admin->create_node('select', ['class'=>'form-control form-group', 'id'=>'post_status', 'name'=>'status']);
                                 $admin->create_straight_text_node('option', ['value'=>'draft'], 'Draft');
                                 $admin->create_straight_text_node('option', ['value'=>'posted'], 'Posted');
                             $admin->close_node('select');
@@ -62,7 +103,7 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
                                                           'type'=>'date', 
                                                           'id'=>'date', 
                                                           'name'=>'date',
-                                                          'value'=>date("Y-m-d") ]);
+                                                          'value'=>$post_date ]);
 
                             //post time
                             $admin->create_straight_text_node('label', ['class'=>'my-1 mr-2 small', 'for'=>'time'], 'Time: ');
@@ -70,7 +111,7 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
                                                           'type'=>'time', 
                                                           'id'=>'time', 
                                                           'name'=>'time',
-                                                          'value'=>date("H:i") ]);
+                                                          'value'=>$post_time ]);
                             $admin->create_hr();
         
                             //form button
@@ -86,15 +127,12 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
     $admin->close_node('div');
 $admin->close_node('div');
 
-
-
-
-    $admin->close_node('div');
-$admin->close_node('div');
+//js to set post type and status based on values from post file
+$admin->create_simple_text_node('script', "document.getElementById('post_type').value = '$post_type';");
+$admin->create_simple_text_node('script', "document.getElementById('post_status').value = '$post_status';");
 
 //required for footer
 include(DIR_ADMIN_VIEWS . "footer.php");
 
 $admin->display();
-
 ?>

@@ -73,7 +73,7 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
 
                         //edit icon
                         $admin->create_simple_node('td');
-                            $admin->create_node('a', ['href'=>'#']);
+                            $admin->create_node('a', ['href'=>$conf_site_url . "admin/edit-post/?edit=" . $post_location]);
                                 $admin->create_straight_node('i', ['class'=>'fas fa-edit']);
                             $admin->close_node('a');
                         $admin->close_node('td');

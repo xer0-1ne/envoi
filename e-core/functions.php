@@ -275,6 +275,7 @@ function create_post(array $post_data) {
     fclose($post_file);
 }
 
+//remove associated files and folders for a post location
 function delete_post($location) {
 
     //set the path to delete

@@ -3,6 +3,15 @@
 //security check
 defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
+//check for the delete super global
+if (isset($_GET['delete'])) {
+    $location = ($_GET['delete']);
+
+    //delete post and return the the views page
+    delete_post($location);
+    header("Location: " . $conf_site_url . "admin" . SLASH . "view-posts" . SLASH);
+}
+
 //define the page title
 $page_title = 'View Posts';
 
@@ -52,7 +61,8 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
                         $post_title     = $post_file_data->get_title();
                         $post_type      = $post_file_data->get_type();
                         $post_date      = $post_file_data->get_pretty_date();
-                        $post_time      = $post_file_data->get_time();      
+                        $post_time      = $post_file_data->get_time();   
+                        $post_location  = $post_file_data->get_post_file_location();   
                         
                         //display the post meta data in the table fields
                         $admin->create_simple_text_node('td', $post_status);
@@ -70,8 +80,8 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
 
                         //delete icon
                         $admin->create_simple_node('td');
-                            $admin->create_node('a', ['href'=>'#']);
-                                $admin->create_straight_node('i', ['class'=>'fas fa-trash red-text']);
+                            $admin->create_node('a', ['href'=>'?delete=' . $post_location]);
+                                $admin->create_straight_node('i', ['class'=>'fas fa-trash text-danger']);
                             $admin->close_node('a');
                         $admin->close_node('td');
 

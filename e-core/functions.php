@@ -55,25 +55,35 @@ function get_post_meta(array $post_map) {
     
     $year = array_keys($post_map);
 
+    //create an array of all post meta data
     foreach ($post_map as $year => $months) {
         foreach ($months as $month => $post_names) {
             foreach ($post_names as $name_of_post => $files) { 
                 foreach ($files as $file ) {
 
+                    //full location of post file
+                    $post_location = DIR_CONTENT_POSTS . $year . SLASH . $month . SLASH . $name_of_post . SLASH . "default.md";
+
+                    //set full date with time from post
+                    $datetime = get_datetime($post_location);
+
+                    //create array of meta data from post
                     $result[] = array(
                         'location' => DIR_CONTENT_POSTS . $year . SLASH . 
                                       $month . SLASH . $name_of_post . SLASH,
                         'file' => $file,
                         'year' => $year,
                         'month' => $month,
+                        'datetime' => $datetime
                     );
                 }
             }
         }
     }
+
+    //sort the array in date order
+    array_multisort( array_column($result, 'datetime'), SORT_DESC, $result );
     
-    //return in order of latest first, and oldest last
-    $result = array_reverse($result);
     return $result;
 }
 
@@ -117,6 +127,11 @@ function build_post($file) {
             
             //set post time
             $post->set_time($line);
+            
+        } else if ( beginWith($line, "location")) {
+            
+            //set post time
+            $post->set_post_file_location($line);
             
         } else {
             //concatenate post content
@@ -178,6 +193,96 @@ function post_fetch(&$html) {
     }
 }
 
+function get_datetime(string $file) {
 
+    //declare date time variable
+    $datetime = "";
+    
+    //open post file from location or die with error message
+    $open_file = fopen($file, "r") or die("Can't open File " . $file);
+
+    //process post informartion and store into array
+    while ( !feof($open_file)) {
+        $line = fgets($open_file);
+
+        //check for post title, type and status
+        if ( beginWith($line, "date")) {
+
+            $datetime .= substr($line, strpos($line, ": ") + 1);
+            
+        } else if ( beginWith($line, "time")) {
+            
+            $datetime .= substr($line, strpos($line, ": ") + 1);
+
+        }
+    }
+
+    //close post file
+    fclose($open_file);
+
+    //return the date value 
+    return strtotime($datetime);
+}
+
+//create post and store in folder
+function create_post(array $post_data) {
+    
+    //post in the future or past!
+
+    //get post date info
+    $post_date = $post_data['post_date'];
+    $post_year = $post_data['post_year'];
+    $post_month = $post_data['post_month'];
+    $post_day = $post_data['post_day'];
+
+    $post_title = ltrim(rtrim($post_data['post_title']));
+    $post_title = str_replace(' ', '_', strtolower($post_title));
+
+    $post_file = "default.md";
+
+    //post location
+    $post_rel_folder_location = $post_year . SLASH . $post_month . SLASH . $post_title . SLASH;
+    $post_folder_location = DIR_CONTENT_POSTS . $post_rel_folder_location;
+    
+    //create the folder
+    if ( !file_exists($post_folder_location)) {
+        mkdir($post_folder_location, 0755, true);
+    }
+
+    //create post location
+    $post_file_location = $post_folder_location . $post_file;
+
+    //create file if it doesn't exist
+    if ( !file_exists($post_file_location) ) {
+        $new_post_file = fopen($post_file_location, 'w');
+        fwrite($new_post_file, 'd');
+        fclose($new_post_file);
+    }
+
+    //create post file to open/edit
+    $post_file = fopen($post_file_location, "w") or die("Unable to create/edit post.");
+
+    //write data to psot file
+    fwrite($post_file, "title: " . $post_data['post_title'] . PHP_EOL );
+    fwrite($post_file, "type: " . $post_data['post_type'] . PHP_EOL );
+    fwrite($post_file, "status: " . $post_data['post_status'] . PHP_EOL );
+    fwrite($post_file, "date: " . $post_data['post_date'] . PHP_EOL );
+    fwrite($post_file, "time: " . $post_data['post_time'] . PHP_EOL );
+    fwrite($post_file, "location: " . $post_rel_folder_location . PHP_EOL );
+    fwrite($post_file, $post_data['post_content']);
+
+    //close file
+    fclose($post_file);
+}
+
+function delete_post($location) {
+
+    //set the path to delete
+    $full_path = DIR_CONTENT_POSTS . $location;
+
+    //remove all files and then delete the folder
+    array_map('unlink', glob("$full_path/*.*"));
+    rmdir($full_path);
+}
 
 ?>

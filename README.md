@@ -1,12 +1,10 @@
-![Envoi Screenshot](https://github.com/xer0-1ne/envoi/blob/master/envoi.png)
-
 # Envoi
 
-Envoi is **simple, self-hosted, PHP, flat-file** blogging platform that enables us to write and share with a variety of social mrdia services.  The focus of Envoi is to eliminate the requirement for databases like SQL, maintain a strong security focus and simplify the blogging and sharing experience.  The goal of Envoi is locally host posts while also automatically sharing content on various social media services and aggrigate the information back onto the blog (comments, likes, shares, etc).
+Envoi is **simple, self-hosted, PHP, flat-file** blogging platform that, through the use of public APIs, enables simultaneous and instant sharing with a variety of social media services.  The focus of Envoi is to eliminate the requirement for SQL databases, maintain a strong security focus, and simplify the blog/content/sharing experience.  Envoi will store all posts locally while also sharing content on various social media services and gather related information back onto the Envoi (comments, likes, shares, etc).
 
-To make the blogging experience more user friendly, blogging categories will be broken into 6 separate options.  These options will help display content and format this content to comply with the posting requirements for other social meida platforms.  
+![Envoi Screenshot](https://github.com/xer0-1ne/envoi/blob/master/envoi.png)
 
-These categories will be:
+One of the unique features built into Envoi is the category system.  Most blog content falls into six categories; text, photo, video, file, link/URL, quote.  To make the Envoi's blogging experience more user friendly, these categories will be the core of sharing information.  These options will help display content and format this content to comply with the posting requirements for other social meida platforms.
 
 #### Text:
 For use with standard blog posts and code blocks.  This will be mostly friendly with all social media platforms.
@@ -26,3 +24,10 @@ To share a weblink
 #### Quote:
 To share a quote where author/originator is required
 
+## Roadmap
+
+ - Build a functional blog platform that is secure and fast.  Envoi will be built with theming and plugin extendability
+ - Incorporate social media APIs
+ - Beta release
+ - Establish domain for better visibility
+ - Build Android / iOS app to simplify mobile blogging/sharing 

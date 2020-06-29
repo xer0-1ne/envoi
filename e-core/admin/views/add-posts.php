@@ -3,6 +3,27 @@
 //security check
 defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
+//check if form has been submitted
+if(isset($_POST['submit'])) {
+
+    //create array to store post data
+    $post_data = array(
+        "post_title" => $_POST['title'],
+        "post_type" => $_POST['post_type'],
+        "post_status" => $_POST['status'],
+        "post_date" => $_POST['date'],
+        "post_year" => date("Y", strtotime($_POST['date'])),
+        "post_month" => date("m", strtotime($_POST['date'])),
+        "post_day" => date("d", strtotime($_POST['date'])),
+        "post_time" => $_POST['time'],
+        "post_content" => $_POST['content']
+    );
+    
+    //create post
+    create_post($post_data);
+    header("Location: " . $conf_site_url . "admin" . SLASH . "view-posts" . SLASH);
+}
+
 //define the page title
 $page_title = 'Add Content';
 

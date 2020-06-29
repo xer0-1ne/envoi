@@ -50,7 +50,6 @@ class Post {
         
         //set the pretty date
         $this->set_pretty_date($this->get_header_data($line));
-
         $this->post_date = $this->get_header_data($line);
     }
 
@@ -63,6 +62,12 @@ class Post {
     function set_content($content) {
         $this->content = $content;
     }
+
+    //get post location
+    function set_post_file_location($line) {
+        $this->post_file_location = trim($this->get_header_data($line));
+    }
+
     
     /*
      * Post Class Getters
@@ -101,6 +106,12 @@ class Post {
     //get content
     function get_content() {
         return $this->content;
+    }
+
+    //get file location
+    function get_post_file_location() {
+        return $this->post_file_location;
+        ;
     }
     
     /*

@@ -19,7 +19,6 @@ class HtmlConstructor {
         libxml_use_internal_errors(false);
         $this->page->formatOutput = true;
 
-        //echo $this->page->saveXML($this->page->documentElement);
         echo $this->page->saveHTML();
     }
 
@@ -162,17 +161,14 @@ class HtmlConstructor {
     }
     
     public function open_node(string $tag) {
-        
         $this->html .= "<" . $tag . ">\n";
     }
     
     public function close_node(string $tag) {
-        
         $this->html .= "</" . $tag . ">\n";
     }
 
     public function get_posts() {
-
         post_fetch($this);
 
     }

@@ -28,15 +28,15 @@ To share a quote where author/originator is required
 
 Setup is designed to be very minimialist and to the point.  When deploying this project, you should be up and running in seconds!
 
-![Envoi Add Content](https://github.com/xer0-1ne/envoi/blob/master/screenshots/setup.png | width=350)
+<img src="https://github.com/xer0-1ne/envoi/blob/master/screenshots/setup.png" width="350">
 
 Adding content is a very easy process.  Simply follow the fields.
 
-![Envoi Screenshot](https://github.com/xer0-1ne/envoi/blob/master/screenshots/add-content.png | width=350)
+<img src="https://github.com/xer0-1ne/envoi/blob/master/screenshots/add-content.png" width="350">
 
 The view page is designed to provide you an overview of content and the ability to edit or delete content.
 
-![Envoi Screenshot](https://github.com/xer0-1ne/envoi/blob/master/screenshots/view-posts.png | width=350)
+<img src="https://github.com/xer0-1ne/envoi/blob/master/screenshots/view-posts.png" width="350">
 
 ## Roadmap
 

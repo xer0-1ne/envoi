@@ -7,3 +7,5 @@ location: 2020/06/adding_content_post/
 Here is a post that is added from the admin panel through "Add Content".
 
 It seems to work very well, and retains whitespace properly.
+
+And It Does!

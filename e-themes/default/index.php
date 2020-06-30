@@ -1,7 +1,7 @@
 <?php # e-themes/default/index.php
 
 //security check
-defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
+defined('CHECK_SECURE_ENVOI') or die('Please return to the main page.');
 
 //new header object
 $page = new HtmlConstructor();
@@ -10,6 +10,8 @@ $page = new HtmlConstructor();
 $page->create_doctype();
 
 $page->create_node('html', ['lang'=>$var_header_info['html_lang']] );
+
+//site header section
 $page->open_node('head');
         $page->create_node('meta', ['charset'=>$var_header_info['html_meta_charset']] );
         $page->create_node('meta', ['name'=>'viewport', 'content'=>$var_header_info['html_viewport']] );
@@ -18,23 +20,22 @@ $page->open_node('head');
         $page->create_node('meta', ['name'=>'url', 'content'=>$var_header_info['html_meta_url']] );
         $page->create_node('meta', ['name'=>'robots', 'content'=>$var_header_info['html_meta_robots']] );
         $page->create_node('link', ['rel'=>'stylesheet', 'href'=>DIR_BOOTSTRAP_CSS . 'bootstrap.min.css' ]);
-        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>URL_CURRENT_THEME_CSS . "theme.css" ]);
-        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>DIR_BASE_CSS . "style.css" ]);
+        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>URL_CURRENT_THEME_CSS . 'theme.css' ]);
+        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>DIR_BASE_CSS . 'style.css' ]);
         $page->create_node('link', ['rel'=>'stylesheet', 'href'=>'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css']);
-
 $page->close_node('head');
 
 //open body section
 $page->open_node('body');
 
-    //site header section
-        //display for now, but ultimately, only display if the member is logged in
-        $page->create_node('div', ['class'=>'text-center h6']);
-            $page->create_node('span', ['class'=>'small text-dark']);
-                $page->create_text_node('a', ['href'=>$conf_site_url . "admin/"], 'Admin' );
-                $page->create_text_node('a', ['href'=>$conf_site_url . "login/"], 'Login' );
-            $page->close_node('span');
-        $page->close_node('div');
+        //navbar at top (this will only be visible for logged in users)
+        $page->create_menu_node('nav', ['class'=>'nav navbar-dark bg-dark quick-bar justify-content-center']);
+                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/'], 'Admin' );
+                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/add-post/'], 'Add Post' );
+                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/profile/'], 'Profile' );
+                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/settings/'], 'Settings' );
+                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/logout/'], 'Logout' );
+        $page->close_node('nav');
 
         //show site title and slogan
         $page->create_node('div', ['class'=>'container head']);

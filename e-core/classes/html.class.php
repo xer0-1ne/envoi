@@ -42,6 +42,22 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
 
+    public function create_menu_node(string $tag, array $attributes) {
+        //build basic line structure
+        $tag_line = "<" . $tag . SP;
+        
+        //get attributes from array, get key as attribute title and value as attribute value
+        foreach ($attributes as $key => $value ) {
+                $tag_line .= $key . "=" . $this->add_quotes($value) . SP;
+        }
+        
+        //close tag line
+        $tag_line .= ">";
+        
+        //echo tag line
+        $this->html .= $tag_line;
+    }
+
     public function create_required_node(string $tag, array $attributes) {
         //build basic line structure
         $tag_line = "<" . $tag . SP;
@@ -128,6 +144,22 @@ class HtmlConstructor {
         
         //close tag line
         $tag_line .= ">" . $l_text . "</{$tag}>\n" . BR;
+        
+        //echo tag line
+        $this->html .= $tag_line;
+    }
+
+    public function create_menu_text_node(string $tag, array $attributes, string $l_text) {
+        //build basic line structure
+        $tag_line = "<{$tag} ";
+        
+        //get attributes from array, get key as attribute title and value as attribute value
+        foreach ($attributes as $key => $value ) {
+                $tag_line .= $key . "=" . $this->add_quotes($value) . SP;
+        }
+        
+        //close tag line
+        $tag_line .= ">" . $l_text . "</{$tag}>";
         
         //echo tag line
         $this->html .= $tag_line;

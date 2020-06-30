@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none !important;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background: #fff !important;
@@ -101,4 +110,13 @@ html {
     font-size: 2em;
     padding: 5px;
     margin-bottom: 10px;
+}
+
+.quick-bar {
+    width: 100vw;
+    position: relative;
+    left: 49%;
+    right: 49%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }

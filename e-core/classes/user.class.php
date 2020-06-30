@@ -67,7 +67,6 @@ class User {
         return VALUE;
     }
        
-    
     /*
      * Functions for changing information
      */

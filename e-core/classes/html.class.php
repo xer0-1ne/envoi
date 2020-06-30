@@ -26,6 +26,7 @@ class HtmlConstructor {
         echo "<!doctype html>\n";
     }
 
+    //create a basic html tag with additional attributes
     public function create_node(string $tag, array $attributes) {
         //build basic line structure
         $tag_line = "<" . $tag . SP;
@@ -42,6 +43,7 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
 
+    //create a menu-based tag with no break lines or return elements
     public function create_menu_node(string $tag, array $attributes) {
         //build basic line structure
         $tag_line = "<" . $tag . SP;
@@ -58,6 +60,7 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
 
+    //create a required html tag
     public function create_required_node(string $tag, array $attributes) {
         //build basic line structure
         $tag_line = "<" . $tag . SP;
@@ -74,6 +77,7 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
 
+    //create a tag that must be opened and closed on the same line
     public function create_straight_node(string $tag, array $attributes) {
         //build basic line structure
         $tag_line = "<" . $tag . SP;
@@ -90,6 +94,7 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
 
+    //create a node that opens and closes with text in between the tags
     public function create_straight_text_node(string $tag, array $attributes, string $l_text) {
         //build basic line structure
         $tag_line = "<" . $tag . SP;
@@ -106,6 +111,7 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
 
+    //create a node that is disabled and has text between the tags
     public function create_straight_disabled_text_node(string $tag, array $attributes, string $l_text) {
         //build basic line structure
         $tag_line = "<" . $tag . SP;
@@ -122,6 +128,7 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
 
+    //create a simple node with no arguments/elements
     public function create_simple_node(string $tag) {
         //build basic line structure
         $tag_line = "<" . $tag . SP;
@@ -133,6 +140,7 @@ class HtmlConstructor {
         $this->html .= $tag_line;
     }
     
+    //create an html node with text
     public function create_text_node(string $tag, array $attributes, string $l_text) {
         //build basic line structure
         $tag_line = "<{$tag} ";
@@ -190,15 +198,13 @@ class HtmlConstructor {
     public function create_hr() {
         $this->html .= "<hr>\n";
     }
-    
-    public function open_node(string $tag) {
-        $this->html .= "<" . $tag . ">\n";
-    }
-    
+
+    //close an html tag
     public function close_node(string $tag) {
         $this->html .= "</" . $tag . ">\n";
     }
 
+    //functiobn to get posts (passes the )
     public function get_posts() {
         post_fetch($this);
 

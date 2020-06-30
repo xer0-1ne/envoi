@@ -12,7 +12,7 @@ $page->create_doctype();
 $page->create_node('html', ['lang'=>$var_header_info['html_lang']] );
 
 //site header section
-$page->open_node('head');
+$page->create_simple_node('head');
         $page->create_node('meta', ['charset'=>$var_header_info['html_meta_charset']] );
         $page->create_node('meta', ['name'=>'viewport', 'content'=>$var_header_info['html_viewport']] );
         $page->create_node('meta', ['name'=>'description', 'content'=>$var_header_info['html_meta_description']] );
@@ -26,7 +26,7 @@ $page->open_node('head');
 $page->close_node('head');
 
 //open body section
-$page->open_node('body');
+$page->create_simple_node('body');
 
         //navbar at top (this will only be visible for logged in users)
         $page->create_menu_node('nav', ['class'=>'nav navbar-dark bg-dark quick-bar justify-content-center']);
@@ -58,28 +58,22 @@ $page->open_node('body');
                         $page->create_node('div', ['id'=>'social-icons']);
                             $page->create_node('ul', ['class'=>'list-inline text-center']);
                                 $page->create_node('li', ['class'=>'list-inline-item']);
-                                    $page->create_node('span', ['class'=>'fa-stack fa-lg']);
-                                        $page->create_node('i', ['class'=>'s_icon fab fa-twitter']);
-                                        $page->close_node('i');
-                                    $page->close_node('span');
+                                    $page->create_straight_node('ion-icon', ['name'=>'logo-facebook', 'size'=>'large']);
                                 $page->close_node('li');
                                 $page->create_node('li', ['class'=>'list-inline-item']);    
-                                    $page->create_node('span', ['class'=>'fa-stack fa-lg']);
-                                        $page->create_node('i', ['class'=>'s_icon fab fa-facebook']);
-                                        $page->close_node('i');
-                                    $page->close_node('span');
+                                    $page->create_straight_node('ion-icon', ['name'=>'logo-twitter', 'size'=>'large']);
                                 $page->close_node('li');
                                 $page->create_node('li', ['class'=>'list-inline-item']);
-                                    $page->create_node('span', ['class'=>'fa-stack fa-lg']);
-                                        $page->create_node('i', ['class'=>'s_icon fab fa-github']);
-                                        $page->close_node('i');
-                                    $page->close_node('span');
+                                    $page->create_straight_node('ion-icon', ['name'=>'logo-github', 'size'=>'large']);
                                 $page->close_node('li');
                                 $page->create_node('li', ['class'=>'list-inline-item']);
-                                    $page->create_node('span', ['class'=>'fa-stack fa-lg']);
-                                        $page->create_node('i', ['class'=>'s_icon fab fa-linkedin']);
-                                        $page->close_node('i');
-                                    $page->close_node('span');
+                                    $page->create_straight_node('ion-icon', ['name'=>'logo-instagram', 'size'=>'large']);
+                                $page->close_node('li');                                
+                                $page->create_node('li', ['class'=>'list-inline-item']);
+                                    $page->create_straight_node('ion-icon', ['name'=>'logo-steam', 'size'=>'large']);
+                                $page->close_node('li');
+                                $page->create_node('li', ['class'=>'list-inline-item']);
+                                    $page->create_straight_node('ion-icon', ['name'=>'logo-youtube', 'size'=>'large']);
                                 $page->close_node('li');
                             $page->close_node('ul');
                         $page->close_node('div');
@@ -103,8 +97,9 @@ $page->open_node('body');
             $page->close_node('div');
         $page->close_node('div');
         
-        $page->create_simple_node('script', ['src'=>DIR_BOOTSTRAP_JS . 'bootstrap.min.js' ]);
-        $page->create_simple_node('script', ['src'=>DIR_BASE_JS . 'jquery.min.js' ]);
+        $page->create_straight_node('script', ['src'=>DIR_BOOTSTRAP_JS . 'bootstrap.min.js' ]);
+        $page->create_straight_node('script', ['src'=>DIR_BASE_JS . 'jquery.min.js' ]);
+        $page->create_straight_node('script', ['src'=>'https://unpkg.com/ionicons@5.1.2/dist/ionicons.js']);
 
 $page->close_node('body');
 $page->close_node('html');

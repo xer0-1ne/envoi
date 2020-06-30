@@ -18,7 +18,7 @@ $setup = new HtmlConstructor();
 $setup->create_doctype();
 
 $setup->create_node('html', ['lang'=>$var_header_info['html_lang']] );
-$setup->open_node('head');
+$setup->create_simple_node('head');
         $setup->create_node('meta', ['charset'=>$var_header_info['html_meta_charset']] );
         $setup->create_node('meta', ['name'=>'viewport', 'content'=>$var_header_info['html_viewport']] );
         $setup->create_node('meta', ['name'=>'description', 'content'=>$var_header_info['html_meta_description']] );

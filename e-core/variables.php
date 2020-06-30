@@ -21,6 +21,6 @@ $var_style                      = 'style.css';
 $var_base_bootstrap_js          = 'jquery.min.js';
 $var_base_jquery_js             = 'bootstrap.min.js';
     
-$var_footer_text                = 'Built with HTML5 and Bootstrap.  Copyright © ' . $conf_site_title . ' ' . date("Y") . '.';
+$var_footer_text                = 'Built with <ion-icon name="heart"></ion-icon> using PHP, HTML5, Ionicons, and Bootstrap 5.  Copyright © ' . $conf_site_title . ' ' . date("Y") . '.';
 
 ?>

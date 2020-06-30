@@ -36,7 +36,7 @@ $page = new HtmlConstructor();
 
 $page->create_doctype();
 $page->create_node('html', ['lang'=>$var_header_info['html_lang']] );
-$page->open_node('head');
+$page->create_simple_node('head');
         $page->create_node('meta', ['charset'=>$var_header_info['html_meta_charset']] );
         $page->create_node('meta', ['name'=>'viewport', 'content'=>$var_header_info['html_viewport']] );
         $page->create_node('meta', ['name'=>'description', 'content'=>$var_header_info['html_meta_description']] );

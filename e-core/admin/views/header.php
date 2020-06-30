@@ -8,8 +8,9 @@ $admin = new HtmlConstructor();
 
 $admin->create_doctype();
 
+//creating the header for the page
 $admin->create_node('html', ['lang'=>$var_header_info['html_lang']] );
-$admin->open_node('head');
+$admin->create_simple_node('head');
         $admin->create_node('meta', ['charset'=>$var_header_info['html_meta_charset']] );
         $admin->create_node('meta', ['name'=>'viewport', 'content'=>$var_header_info['html_viewport']] );
         $admin->create_node('meta', ['name'=>'description', 'content'=>$var_header_info['html_meta_description']] );

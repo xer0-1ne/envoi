@@ -52,7 +52,7 @@ class HtmlConstructor {
         }
         
         //close tag line
-        $tag_line .= " required>\n";
+        $tag_line .= " required>";
         
         //echo tag line
         $this->html .= $tag_line;
@@ -143,7 +143,6 @@ class HtmlConstructor {
         //echo tag line
         $this->html .= $tag_line;
     }
-
 
     //add quotes
     private function add_quotes($value) {

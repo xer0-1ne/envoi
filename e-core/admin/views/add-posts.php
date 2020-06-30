@@ -99,7 +99,7 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
                                                           'type'=>'submit', 
                                                           'name'=>'save', 
                                                           'value'=>'Save for Later']);
-                            $admin->create_node('input', ['class'=>'btn btn-danger form-control form-group', 
+                            $admin->create_node('input', ['class'=>'btn btn-danger form-control form-group mt-3', 
                                                           'type'=>'submit', 
                                                           'name'=>'submit', 
                                                           'value'=>'Post Now']);

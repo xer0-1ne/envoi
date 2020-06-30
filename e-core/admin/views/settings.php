@@ -16,6 +16,10 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
             $admin->create_text_node('span', ['class'=>'admin-header-text dark-text'], $page_title );
         $admin->close_node('div');
 
+        
+
+
+
 
 
 

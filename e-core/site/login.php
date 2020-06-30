@@ -43,7 +43,7 @@ $page->open_node('head');
         $page->create_node('meta', ['name'=>'author', 'content'=>$var_header_info['html_meta_author']] );
         $page->create_node('meta', ['name'=>'url', 'content'=>$var_header_info['html_meta_url']] );
         $page->create_node('meta', ['name'=>'robots', 'content'=>$var_header_info['html_meta_robots']] );
-        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>$conf_site_url . 'e-core/resources/css/' . $var_base_bootstrap_css ]);
+        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>DIR_BOOTSTRAP_CSS . 'bootstrap.min.css' ]);
         $page->create_node('link', ['rel'=>'stylesheet', 'href'=>$conf_site_url . 'e-core/resources/css/style.css' ]);
 $page->close_node('head');
 $page->display();

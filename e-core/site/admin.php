@@ -16,7 +16,7 @@ if (fnmatch("*dashboard/", $_SERVER['REQUEST_URI'])) {
 } else if (fnmatch("*view-posts/*", $_SERVER['REQUEST_URI'])) {
     include(DIR_ADMIN_VIEWS . 'view-posts.php');
 } else {
-    include(DIR_ADMIN_VIEWS . 'dashboard.php');
+    include(DIR_ADMIN_VIEWS . 'view-posts.php');
 }
 
 ?>

@@ -17,10 +17,11 @@ $page->open_node('head');
         $page->create_node('meta', ['name'=>'author', 'content'=>$var_header_info['html_meta_author']] );
         $page->create_node('meta', ['name'=>'url', 'content'=>$var_header_info['html_meta_url']] );
         $page->create_node('meta', ['name'=>'robots', 'content'=>$var_header_info['html_meta_robots']] );
-        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>DIR_BASE_CSS . "bootstrap.min.css" ]);
+        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>DIR_BOOTSTRAP_CSS . 'bootstrap.min.css' ]);
         $page->create_node('link', ['rel'=>'stylesheet', 'href'=>URL_CURRENT_THEME_CSS . "theme.css" ]);
         $page->create_node('link', ['rel'=>'stylesheet', 'href'=>DIR_BASE_CSS . "style.css" ]);
-        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>DIR_FONT_AWESOME . 'fontawesome-all.min.css' ]);
+        $page->create_node('link', ['rel'=>'stylesheet', 'href'=>'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css']);
+
 $page->close_node('head');
 
 //open body section
@@ -101,10 +102,8 @@ $page->open_node('body');
             $page->close_node('div');
         $page->close_node('div');
         
-        $page->create_node('script', ['src'=>DIR_BASE_JS . $var_base_bootstrap_js]);
-        $page->close_node('script');        
-        $page->create_node('script', ['src'=>DIR_BASE_JS . $var_base_jquery_js]);
-        $page->close_node('script');
+        $page->create_simple_node('script', ['src'=>DIR_BOOTSTRAP_JS . 'bootstrap.min.js' ]);
+        $page->create_simple_node('script', ['src'=>DIR_BASE_JS . 'jquery.min.js' ]);
 
 $page->close_node('body');
 $page->close_node('html');

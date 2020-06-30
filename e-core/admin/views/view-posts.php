@@ -74,14 +74,14 @@ $admin->create_node('div', ['class'=>'d-flex', 'id'=>'wrapper']);
                         //edit icon
                         $admin->create_simple_node('td');
                             $admin->create_node('a', ['href'=>$conf_site_url . "admin/edit-post/?edit=" . $post_location]);
-                                $admin->create_straight_node('i', ['class'=>'fas fa-edit']);
+                            $admin->create_straight_node('img', ['class'=>'bi text-danger', 'src'=>DIR_BOOTSTRAP_ICONS . 'pencil-square.svg', 'alt'=>'edit', 'width'=>'16', 'height'=>'16'] );
                             $admin->close_node('a');
                         $admin->close_node('td');
 
                         //delete icon
                         $admin->create_simple_node('td');
                             $admin->create_node('a', ['href'=>'?delete=' . $post_location]);
-                                $admin->create_straight_node('i', ['class'=>'fas fa-trash text-danger']);
+                                $admin->create_straight_node('img', ['class'=>'bi text-danger', 'src'=>DIR_BOOTSTRAP_ICONS . 'trash-fill.svg', 'alt'=>'edit', 'width'=>'16', 'height'=>'16'] );
                             $admin->close_node('a');
                         $admin->close_node('td');
 

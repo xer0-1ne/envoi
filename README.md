@@ -1,11 +1,8 @@
 # Envoi
-<style>
-.center { display: block; margin-left: auto; margin-right: auto; }
- </style>
 
 Envoi is **simple, self-hosted, PHP, flat-file** blogging platform that, through the use of public APIs, enables simultaneous and instant sharing with a variety of social media services.  The focus of Envoi is to eliminate the requirement for SQL databases, maintain a strong security focus, and simplify the blog/content/sharing experience.  Envoi will store all posts locally while also sharing content on various social media services and gather related information back onto the Envoi (comments, likes, shares, etc).
 
-<img src="https://github.com/xer0-1ne/envoi/blob/master/screenshots/envoi-mainpage.png" width="600" class="center">
+<img src="https://github.com/xer0-1ne/envoi/blob/master/screenshots/envoi-mainpage.png" width="600" style="display: block; margin-left: auto; margin-right: auto;">
 
 One of the unique features built into Envoi is the category system.  Most blog content falls into six categories; text, photo, video, file, link/URL, quote.  To make the Envoi's blogging experience more user friendly, these categories will be the core of sharing information.  These options will help display content and format this content to comply with the posting requirements for other social meida platforms.
 

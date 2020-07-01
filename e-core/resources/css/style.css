@@ -26,13 +26,22 @@ a {
 }
 
 .login-form p {
+    margin-bottom: -25px;
+}
+
+.login-form p {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
 
 .v-center {
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .my-auto {

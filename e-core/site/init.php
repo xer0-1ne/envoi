@@ -53,6 +53,14 @@ define('DIR_SITE_STRUCTURE', DIR_SITE . 'structure' . SLASH);
 define('BR', "<br>\n");
 define('SP', " ");
 
+define('USERNAME', "user_username");
+define('FIRSTNAME', "user_firstname");
+define('LASTNAME', "user_lastname");
+define('USER_TITLE', "user_title");
+define('USER_EMAIL', "user_email");
+
+define('DB_FILE', DIR_DATABASE . "data.db");
+
 /*
  * Include all required files
  */

@@ -9,6 +9,7 @@ $page = new HtmlConstructor();
 //create header
 $page->create_doctype();
 
+//create html node for page
 $page->create_node('html', ['lang'=>$var_header_info['html_lang']] );
 
 //site header section

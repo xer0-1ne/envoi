@@ -10,9 +10,8 @@ require_once(DIR_SITE . 'init.php');
 
 //if data.db exists, then send user to login page
 if ( file_exists(DIR_DATABASE . 'data.db') ) {
-    //header("Location: " . $conf_site_url . "login/");
+    header("Location: " . $conf_site_url . "login/");
 }
-
 //check for form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -28,10 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $firstname          = $_POST['firstname'];
             $lastname           = $_POST['lastname'];
             $username           = $_POST['username'];
+            $title              = $_POST['title'];
             $email              = $_POST['email'];
+
+            //set user values
+            set_user_value(USERNAME, $username);
+            set_user_value(FIRSTNAME, $firstname);
+            set_user_value(LASTNAME, $lastname);
+            set_user_value(USER_TITLE, $title);
+            set_user_value(USER_EMAIL, $email);
 
             //hash password 
             $password = password_hash( $_POST['password'], PASSWORD_ARGON2I );
+
             $dbfile = DIR_DATABASE . 'data.db';
 
             //build array for json file
@@ -39,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $username => array(
                     'username' => "$username",
                     'email' => "$email",
-                    'password' => "$password",
+                    'password' => "$password"
                 )
             );
 
@@ -48,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             //open file and write json to file
             $file = fopen($dbfile, 'w');
-            fwrite($file, 'd');
             fwrite($file, $pwd_json); 
 
             //close file
@@ -132,6 +139,13 @@ $setup->create_node('div', ['class'=>'row ml-1 mr-1 setup-page']);
                     $setup->create_text_node('label', ['class'=>'font-weight-bold form-label', 'for'=>'lastname'], 'Last Name');
                     $setup->create_required_node('input', ['type'=>'text', 'id'=>'lastname', 'name'=>'lastname', 'class'=>'form-control']);
                     $setup->create_text_node('small', ['class'=>'form-text text-muted'], 'Enter your last name. ');
+                $setup->close_node('div');
+
+                //title
+                $setup->create_node('div', ['class'=>'mb-4']);
+                    $setup->create_text_node('label', ['class'=>'font-weight-bold form-label', 'for'=>'title'], 'Title');
+                    $setup->create_required_node('input', ['type'=>'text', 'id'=>'title', 'name'=>'title', 'class'=>'form-control']);
+                    $setup->create_text_node('small', ['class'=>'form-text text-muted'], 'Enter your title. ');
                 $setup->close_node('div');
 
                 //username

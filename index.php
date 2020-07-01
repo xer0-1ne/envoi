@@ -1,5 +1,7 @@
 <?php # index.php
 
+header('Content-Type: text/html');
+
 /* Envoi Blog
  * https://github.com/xer0-1ne/envoi
  * MIT License

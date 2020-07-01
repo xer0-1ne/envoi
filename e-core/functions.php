@@ -8,7 +8,6 @@ function beginWith($line, $check) {
     
     $length = strlen($check);
     return substr($line, 0, $length) === $check; 
-
 }
 
 //return if a line begins with "check"
@@ -19,7 +18,7 @@ function endWith($line, $check) {
         return true;
     }
     return substr($line, -$length) === $check; 
-    
+
 }
 
 //directory mapping to scan and find posts in the content folder
@@ -138,9 +137,7 @@ function build_post($file) {
             $post_content .= $line . "<br>";        
             
         } //end content assignment
-        
     } //end while
-    
     //set post congtent
     $post->set_content($post_content);
     
@@ -216,7 +213,6 @@ function get_datetime(string $file) {
 
         }
     }
-
     //close post file
     fclose($open_file);
 
@@ -286,4 +282,41 @@ function delete_post($location) {
     rmdir($full_path);
 }
 
+//sets the name of the user
+function set_user_value($user_entry, $user_value) {
+
+    //open the user.php file
+    $user_file = DIR_CONF . 'user.php';
+    $new_user_file = array();
+
+    //open file
+    $open_file = fopen($user_file, "r") or die("Can't open File " . $user_file);
+
+    //process post informartion and store into array
+    while ( !feof($open_file)) {
+        $line = fgets($open_file);
+
+        if (strstr($line, $user_entry) !== false) {
+            $line = preg_replace('/"([^"]+)"/', "\"$user_value\"", $line);
+        }
+
+        $new_user_file[] = $line; 
+    }
+    //close file 
+    fclose($open_file);
+
+    write_file($user_file, $new_user_file);
+}
+
+//write data to a file
+function write_file($file, $array) {
+
+    $open_file = fopen($file, "w") or die("Can't open File " . $file);
+
+    foreach ( $array as $line ) {
+        fwrite($open_file, $line);
+    }
+
+    fclose($open_file);
+}
 ?>

@@ -209,6 +209,12 @@ class HtmlConstructor {
         post_fetch($this);
 
     }
+
+    //get the admin bar for the main page
+    public function get_adminbar() {
+        display_admin_quickbar($this);
+    }
+
 }
 
 ?>

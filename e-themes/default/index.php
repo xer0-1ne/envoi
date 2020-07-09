@@ -30,13 +30,9 @@ $page->close_node('head');
 $page->create_simple_node('body');
 
         //navbar at top (this will only be visible for logged in users)
-        $page->create_menu_node('nav', ['class'=>'nav navbar-dark bg-dark quick-bar justify-content-center']);
-                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/'], 'Admin' );
-                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/add-post/'], 'Add Post' );
-                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/profile/'], 'Profile' );
-                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/settings/'], 'Settings' );
-                $page->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/logout/'], 'Logout' );
-        $page->close_node('nav');
+        if(isset($_SESSION["id"])) {
+            $page->get_adminbar();
+        }
 
         //show site title and slogan
         $page->create_node('div', ['class'=>'container head']);

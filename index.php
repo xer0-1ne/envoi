@@ -1,7 +1,5 @@
 <?php # index.php
 
-header('Content-Type: text/html');
-
 /* Envoi Blog
  * https://github.com/xer0-1ne/envoi
  * MIT License
@@ -9,6 +7,7 @@ header('Content-Type: text/html');
  *
  * Envoi is a PHP-based flat file blogging system with shareability, simplicity, and versatility in mind. 
  */
+session_start();                                    //start session
 ob_start();                                         //start output buffering
 
 define('SLASH', DIRECTORY_SEPARATOR);               //Shorten directory separator
@@ -18,8 +17,8 @@ define('DIR_SITE', DIR_CORE . 'site' . SLASH);      //define default site path
 
 define('CHECK_SECURE_ENVOI', true);                 //define security constant
 
-require_once(DIR_CORE . 'conf' . SLASH . 'config.php');
-require_once(DIR_SITE . 'init.php');                //require init.php for site requirements
+require(DIR_CORE . 'conf' . SLASH . 'config.php');
+require(DIR_SITE . 'init.php');                //require init.php for site requirements
 
 if ( !file_exists(DIR_DATABASE . 'data.db' )) {
     header("Location: " . $conf_site_url . 'setup.php');

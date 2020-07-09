@@ -159,8 +159,6 @@ function post_fetch(&$html) {
     //loop through each post in the array and display the info
     foreach ( $post_meta as $post_info ) {
 
-        $post_dom_stack = new HtmlConstructor();
-
         //get file path location for the markdown post file
         $post_file_location = $post_info['location'] . $post_info['file'];
 
@@ -318,5 +316,21 @@ function write_file($file, $array) {
     }
 
     fclose($open_file);
+}
+
+//display admin
+function display_admin_quickbar(&$html) {
+
+    //get global variable for site location
+    global $conf_site_url;
+
+    //navbar at top (this will only be visible for logged in users)
+    $html->create_menu_node('nav', ['class'=>'nav navbar-dark bg-dark quick-bar justify-content-center']);
+        $html->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/'], 'Admin' );
+        $html->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/add-post/'], 'Add Post' );
+        $html->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/profile/'], 'Profile' );
+        $html->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/settings/'], 'Settings' );
+        $html->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/logout/'], 'Logout' );
+    $html->close_node('nav');
 }
 ?>

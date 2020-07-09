@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($_POST['password'], $pwd_hash)) {
             //starts a session
             //will need to create unique session values and then protect all admin pages and the mainpage bar.
-            session_start();
+            $_SESSION["id"] = $db_array[$user_username]['user_id'];
             header('Location: ' . $conf_site_url);
 
         } else {

@@ -5,83 +5,82 @@ defined('CHECK_SECURE_ENVOI') or die("Please return to the main page.");
 
 class User {
     
-    protected $user_info = [
-        'username' => '',
-        'firstName' => '',
-        'lastName' => '',
-        'password' => '',
-        'salt' => '',
-        'email' => '',
-        'title' => '',
-        'about' => ''
-    
-    ];
-    
-    /*
-     * Functions for creating the user
-     */
-    
-    function createUser() {}
+    protected $username    = '';
+    protected $firstname   = '';
+    protected $lastname    = '';
+    protected $password    = '';
+    protected $email       = '';
+    protected $title       = '';
+    protected $about       = '';
+    protected $session_id  = '';
     
     /*
      * 'Setters' for User
      */
     
-    function set_username() {}
+    function set_username(string $username) {
+        $this->username = $username;
+    }
     
-    function set_firstName() {}
+    function set_firstname(string $firstname) {
+        $this->username = $username;
+    }
     
-    function set_lastName() {}
+    function set_lastname(string $lastname) {
+        $this->username = $username;
+    }
     
-    function set_password() {}
-    
-    function set_salt() {}
-    
-    function set_email() {}
+    function set_password(string $password) {
+        $this->username = $username;
+    }
+        
+    function set_email(string $email) {
+        $this->username = $username;
+    }
+
+    function set_title(string $title) {
+        $this->username = $username;
+    }
+ 
+    function set_about(string $about) {
+        $this->username = $username;
+    }
+ 
+    function set_session_id(string $session_id) {
+        $this->username = $username;
+    }
     
     /*
      * 'Getters' for User
      */
     
     function get_username() {
-        return VALUE;
+        return $this->username;
     }
     
-    function get_firstName() {
-        return VALUE;
+    function get_firstname() {
+        return $this->firstname;
     }
     
-    function get_lastName() {
-        return VALUE;
-    }
-    
-    function get_password() {
-        return VALUE;
-    }
-    
-    function get_salt() {
-        return VALUE;
+    function get_lastname() {
+        return $this->lastname;
     }
     
     function get_email() {
-        return VALUE;
+        return $this->email;
     }
-       
-    /*
-     * Functions for changing information
-     */
-    function change_username() {}
-    
-    function change_firstName() {}
-    
-    function change_lastName() {}
-    
-    function change_password() {}
-    
-    function change_salt() {}
 
-    function change_email() {}
-  
+    function get_title() {
+        return $this->title;
+    }
+
+    function get_about() {
+        return $this->about;
+    }
+
+    function get_session_id() {
+        return $this->session_id;
+    }
 }
 
 ?>

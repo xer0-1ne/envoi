@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username           = $_POST['username'];
             $title              = $_POST['title'];
             $email              = $_POST['email'];
+            $user_id            = bin2hex(random_bytes(16));
 
             //set user values
             set_user_value(USERNAME, $username);
@@ -45,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //build array for json file
             $data = array(
                 $username => array(
+                    'user_id' => "$user_id",
                     'username' => "$username",
                     'email' => "$email",
                     'password' => "$password"

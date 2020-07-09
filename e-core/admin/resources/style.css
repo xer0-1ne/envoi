@@ -34,3 +34,8 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+
+.config {
+    background-color: #f9f9f9;
+    border-color: white;
+}

@@ -29,6 +29,8 @@ if (fnmatch("*admin/*",$_SERVER['REQUEST_URI'])) {
     include(DIR_SITE . 'admin.php');
 } else if (fnmatch("*login/",$_SERVER['REQUEST_URI'])) {
     include(DIR_SITE . 'login.php');
+} else if (fnmatch("*login",$_SERVER['REQUEST_URI'])) {
+    include(DIR_SITE . 'login.php');
 } else {
     include(DIR_SITE . 'site.php');
 }

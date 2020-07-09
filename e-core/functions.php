@@ -333,4 +333,41 @@ function display_admin_quickbar(&$html) {
         $html->create_menu_text_node('a', ['class'=>'nav-link text-light small', 'href'=>$conf_site_url . 'admin/logout/'], 'Logout' );
     $html->close_node('nav');
 }
+
+//get settings
+function get_config_settings(string $file) {
+
+    $data_file_array = array();
+
+    //open post file from location or die with error message
+    $open_file = fopen($file, "r") or die("Can't open File " . $file);
+
+    //process post informartion and store into array
+    while ( !feof($open_file)) {
+        $line = fgets($open_file);
+
+        //check to see if line begins with $conf declaration
+        if (beginWith($line, '$conf')) {
+
+            //explode the line at the equals sign and create an array to store the variable name and the value
+            $config_line = explode(" = ", $line);
+
+            //
+            $variable = substr($config_line[0], 6, strlen($config_line[0]));
+
+            //get data between quotes (and before the semicolon)
+            preg_match('~"(.*?)";~', $config_line[1], $value);
+
+            //add the variable name as key and the value as the data
+            $data_file_array[$variable] = $value[1];
+        }
+    }
+    //close post file
+    fclose($open_file);
+
+    //return array of settings
+    return $data_file_array;
+}
+
+
 ?>

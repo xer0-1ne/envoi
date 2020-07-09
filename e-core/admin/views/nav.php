@@ -74,7 +74,7 @@ $admin->create_node('nav', ['class'=>'navbar align-items-start']);
 
                 //item Logout
                 $admin->create_node('li', ['class'=>'nav-item my-1', 'role'=>'presentation']);
-                    $admin->create_node('a', ['class'=>'nav-link', 'href'=>'#']);
+                    $admin->create_node('a', ['class'=>'nav-link', 'href'=>'admin/logout/']);
                         $admin->create_straight_node('ion-icon', ['class'=>'text-dark align-middle', 'name'=>'log-out', 'size'=>'small']);
                         $admin->create_text_node('span', ['class'=>'text-muted align-middle'], 'Log Out');
                     $admin->close_node('a');

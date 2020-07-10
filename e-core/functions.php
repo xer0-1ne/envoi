@@ -368,6 +368,4 @@ function get_config_settings(string $file) {
     //return array of settings
     return $data_file_array;
 }
-
-
 ?>

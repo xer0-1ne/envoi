@@ -1,3 +1,5 @@
+### Envoi is currently under development and looking to grow the team.  If you are interested, please let me know.
+
 # Envoi
 
 Envoi is **simple, self-hosted, PHP, flat-file** blogging platform that, through the use of public APIs, enables simultaneous and instant sharing with a variety of social media services.  The focus of Envoi is to eliminate the requirement for SQL databases, maintain a strong security focus, and simplify the blog/content/sharing experience.  Envoi will store all posts locally while also sharing content on various social media services and gather related information back onto the Envoi (comments, likes, shares, etc).
